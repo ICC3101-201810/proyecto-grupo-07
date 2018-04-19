@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace Proyecto_Omega
 {
     class Sistema
     {
         List<Cuenta> listaCuentas;
+
 
         public void crearCuenta(int miId, string miNombre, string miApellido, string miNombreUsuario, string miClaveAcceso, string miEmail, List<int> miApuntesSubidos, int miValoriacionCuenta, List<int> miCursosRealizados, List<int> miAmigos, List<int> miCuentaFavoritos, string miCarrera)
         {
@@ -20,14 +22,13 @@ namespace Proyecto_Omega
         {
             foreach (Cuenta revisionCuentas in listaCuentas)
             {
-                int contador = 0;
                 if (revisionCuentas.id==miId)
                 {
                     Console.WriteLine("La cuenta de {0} {1} ha sido eliminada satisfactoriamente", revisionCuentas.nombre, revisionCuentas.apellido);
-                    //cuenta[contador]
+                    listaCuentas.Remove(revisionCuentas);
                     
                 }
-                contador = contador + 1;
+                
             }
             
         }

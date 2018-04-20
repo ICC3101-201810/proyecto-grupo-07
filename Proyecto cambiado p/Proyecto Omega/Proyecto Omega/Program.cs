@@ -12,11 +12,12 @@ namespace Proyecto_Omega
         {
             Sistema miSistema = new Sistema();
 
-            miSistema.subirApunte();
-            miSistema.mostrarApunteID();
-            miSistema.mostrarApunteID();
-            miSistema.cambiarApunte();
-            miSistema.mostrarApunteTodos();
+            miSistema.crearCuenta();
+            foreach(Cuenta i in miSistema.listaCuentas)
+            {
+                Console.WriteLine("{0}", i.nombre);
+            }
+            Console.ReadLine();
         }
     }
 }

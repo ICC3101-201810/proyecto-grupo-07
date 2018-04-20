@@ -7,11 +7,11 @@ using System.IO;
 
 namespace Proyecto_Omega
 {
-    class Sistema
+    public class Sistema
     {
-        List<Cuenta> listaCuentas = new List<Cuenta>() { };
-        List<Apunte> listaApuntes = new List<Apunte>() { };
-        List<Curso> listaCursos = new List<Curso>() { new Curso("nombre", "facultad", "carrera", 
+        public List<Cuenta> listaCuentas = new List<Cuenta>() { };
+        public List<Apunte> listaApuntes = new List<Apunte>() { };
+        public List<Curso> listaCursos = new List<Curso>() { new Curso("nombre", "facultad", "carrera", 
                                                                 new List<string>() { })};
         Cuenta cuentaLog = new Admin(-1, "Sistema", "", "Sistema", "", "", "");
         Menu menu = new Menu();
@@ -49,6 +49,8 @@ namespace Proyecto_Omega
                     datos.Add(String.Join(", ", i.apuntesSubidos.ToArray()));
                     datos.Add(String.Join(", ", i.valoracionCuenta.ToArray()));
                     datos.Add(String.Join(", ", i.cursosRealizados.ToArray()));
+                    datos.Add(String.Join(", ", i.amigos.ToArray()));
+                    datos.Add(String.Join(", ", i.favoritos.ToArray()));
 
                 }
             }
@@ -196,7 +198,7 @@ namespace Proyecto_Omega
                     Console.WriteLine("Rut invalido");
                 }
             } while (!Int32.TryParse(auxID, out auxParse));
-            int miID = Int32.Parse(Console.ReadLine());
+            int miID = Int32.Parse(auxID);
             Console.Write("Ingrese su Nombre: ");string miNombre = Console.ReadLine();
             Console.Write("Ingrese su Apellido: ");string miApellido = Console.ReadLine();
             Console.Write("Ingrese su Nombre de Usuario: ");string miNombreUsuario = Console.ReadLine();

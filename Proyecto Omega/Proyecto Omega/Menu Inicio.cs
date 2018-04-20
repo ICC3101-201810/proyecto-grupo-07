@@ -12,12 +12,12 @@ namespace Proyecto_Omega
         {
             while (true)
             {
-                Console.WriteLine("Bienvenido a tu plataforma de apuntes",
-                  "Si eres miembro inicia sesion o crea una para comenzar a disfrutar del mejor material de estudio",
-                  "1-Inicio Sesion",
-                  "2-Crear Cuenta Nueva"
+                Console.Write("Bienvenido a tu plataforma de apuntes" +
+                  "\nSi eres miembro inicia sesion o crea una para comenzar a disfrutar del mejor material de estudio" +
+                  "\n1-Inicio Sesion" +
+                  "\n2-Crear Cuenta Nueva"
                   );
-                string opcion = Console.ReadLine();
+                Console.Write("\nIngrese su opcion: "); string opcion = Console.ReadLine();
                 if (opcion == "1")
                 {
                     Console.Clear();

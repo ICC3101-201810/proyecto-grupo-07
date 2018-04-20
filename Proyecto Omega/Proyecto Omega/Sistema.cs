@@ -34,7 +34,7 @@ namespace Proyecto_Omega
             Console.Write("Ingrese su Rut: ");string miEmail = Console.ReadLine();
             Console.Write("Ingrese su Rut: ");string miCarrera = Console.ReadLine();
 
-            Cuenta nuevaCuenta = new Cuenta(miId, miNombre, miApellido, miNombreUsuario, miClaveAcceso, "Estudiante", miEmail, miCarrera);
+            Cuenta nuevaCuenta = new Cuenta(miId, miNombre, miApellido, miNombreUsuario, miClaveAcceso, miEmail, miCarrera);
             listaCuentas.Add(nuevaCuenta);
         }
 

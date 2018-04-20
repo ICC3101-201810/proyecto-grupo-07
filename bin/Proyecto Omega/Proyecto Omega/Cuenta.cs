@@ -8,5 +8,6 @@ namespace Proyecto_Omega
 {
     class Cuenta
     {
+        string nombre
     }
 }

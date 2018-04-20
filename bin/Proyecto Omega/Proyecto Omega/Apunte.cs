@@ -8,5 +8,7 @@ namespace Proyecto_Omega
 {
     class Apunte
     {
+        public int ID;
+        public 
     }
 }

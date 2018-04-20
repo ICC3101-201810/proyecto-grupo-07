@@ -8,5 +8,6 @@ namespace Proyecto_Omega
 {
     class Sistema
     {
+        
     }
 }

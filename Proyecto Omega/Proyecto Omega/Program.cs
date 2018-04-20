@@ -10,6 +10,9 @@ namespace Proyecto_Omega
     {
         static void Main(string[] args)
         {
+            Menu_Inicio menu_Inicio = new Menu_Inicio();
+            menu_Inicio.menuInicial();
+
         }
     }
 }

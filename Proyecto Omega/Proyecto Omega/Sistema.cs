@@ -13,13 +13,28 @@ namespace Proyecto_Omega
 
         public bool verificarContrasena(string miNombreUsuario, string miClaveAcceso)
         {
-
+            foreach (Cuenta revisionCuentas in listaCuentas)
+            {
+                if (revisionCuentas.nombreUsuario==miNombreUsuario && revisionCuentas.claveAcceso==miClaveAcceso)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
 
-        public void crearCuenta(int miId, string miNombre, string miApellido, string miNombreUsuario, string miClaveAcceso, string miEmail, List<int> miApuntesSubidos, int miValoriacionCuenta, List<int> miCursosRealizados, List<int> miAmigos, List<int> miCuentaFavoritos, string miCarrera)
+        public void crearCuenta()
         {
-            Cuenta nuevaCuenta = new Cuenta(miId, miNombre, miApellido, miNombreUsuario, miClaveAcceso, "Estudiante", miEmail, miApuntesSubidos, miValoriacionCuenta, miCursosRealizados, miAmigos, miCuentaFavoritos, miCarrera);
+            Console.Write("Ingrese su Rut: ");int miId = Int32.Parse(Console.ReadLine()); 
+            Console.Write("Ingrese su Rut: ");string miNombre = Console.ReadLine();
+            Console.Write("Ingrese su Rut: ");string miApellido = Console.ReadLine();
+            Console.Write("Ingrese su Rut: ");string miNombreUsuario = Console.ReadLine();
+            Console.Write("Ingrese su Rut: ");string miClaveAcceso = Console.ReadLine();
+            Console.Write("Ingrese su Rut: ");string miEmail = Console.ReadLine();
+            Console.Write("Ingrese su Rut: ");string miCarrera = Console.ReadLine();
+
+            Cuenta nuevaCuenta = new Cuenta(miId, miNombre, miApellido, miNombreUsuario, miClaveAcceso, "Estudiante", miEmail, miCarrera);
             listaCuentas.Add(nuevaCuenta);
         }
 

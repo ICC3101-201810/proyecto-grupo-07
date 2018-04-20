@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace Proyecto_Omega
 {
-    class Profesor
+    class Profesor : Cuenta
     {
+        public Profesor(string Nombre, string Apellido, string NombreUsuario, string ClaveAcceso,
+                     string Email, string Carrera)
+             : base(Nombre, Apellido, NombreUsuario, ClaveAcceso, Email, Carrera) { }
+
+        public void BorrarApunte(Apunte)
+        {
+            
+        }
     }
 }

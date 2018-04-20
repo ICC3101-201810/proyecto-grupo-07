@@ -17,7 +17,7 @@ namespace Proyecto_Omega
         public string curso;
         public List<string> topico;
         public string carrera;
-        public int valoracion = 0;
+        public List<int> valoracion = new List<int>() { };
         public string contenido;
         public bool publico = false;
         public List<Cuenta> usuariosCompartido = new List<Cuenta>() { };
@@ -31,7 +31,7 @@ namespace Proyecto_Omega
             topico = Topico;
             carrera = Carrera;
             contenido = Contenido;
-            this.ID = System.Threading.Interlocked.Increment(ref m_Counter);
+            ID = System.Threading.Interlocked.Increment(ref m_Counter);
         }
     }
 }

@@ -17,7 +17,7 @@ namespace Proyecto_Omega
         public List<Apunte> apuntes = new List<Apunte>() { };
         public string carrera;
         public List<string> topico;
-        public int dificultadValorada = 0;
+        public List<int> dificultadValorada = new List<int>() { }; 
 
         public Curso(string NombreCurso, string Facultad, string Carrera, List<string> Topico)
         {
@@ -25,7 +25,7 @@ namespace Proyecto_Omega
             facultad = Facultad;
             carrera = Carrera;
             topico = Topico;
-            this.ID = System.Threading.Interlocked.Increment(ref m_Counter);
+            ID = System.Threading.Interlocked.Increment(ref m_Counter);
         }
     }
 }

@@ -8,10 +8,13 @@ namespace Proyecto_Omega
 {
     class Profesor : Cuenta
     {
-        public Profesor(int miId, string miNombre, string miApellido, string miNombreUsuario, string miClaveAcceso,
-                     string miEmail, string miCarrera)
-             : base(miId, miNombre, miApellido, miNombreUsuario, miClaveAcceso, miEmail, miCarrera) { }
+        public Profesor(string Nombre, string Apellido, string NombreUsuario, string ClaveAcceso,
+                     string Email, string Carrera)
+             : base(Nombre, Apellido, NombreUsuario, ClaveAcceso, Email, Carrera) { }
 
-        
+        public void BorrarApunte(Apunte)
+        {
+            
+        }
     }
 }

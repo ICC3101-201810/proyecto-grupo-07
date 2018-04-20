@@ -8,9 +8,9 @@ namespace Proyecto_Omega
 {
     class Admin : Cuenta
     {
-        public Admin(int miId, string miNombre, string miApellido, string miNombreUsuario, string miClaveAcceso, 
-                     string miEmail, string miCarrera) 
-             : base(miId, miNombre, miApellido, miNombreUsuario, miClaveAcceso, miEmail, miCarrera){}
+        public Admin(string Nombre, string Apellido, string NombreUsuario, string ClaveAcceso, 
+                     string Email, string Carrera) 
+             : base(Nombre, Apellido, NombreUsuario, ClaveAcceso, Email, Carrera){}
 
     }
 }

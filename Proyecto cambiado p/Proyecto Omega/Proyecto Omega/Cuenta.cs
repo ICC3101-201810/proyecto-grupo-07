@@ -17,8 +17,8 @@ namespace Proyecto_Omega
         public List<int> apuntesSubidos = new List<int>() { };    // Lista de los ID de los apuntes
         public List<int> valoracionCuenta = new List<int>() { };  // que ha subido
         public List<int> cursosRealizados = new List<int>() { 1};  // ID de cursos
-        public List<Cuenta> amigos = new List<Cuenta>() { };
-        public List<Cuenta> favoritos = new List<Cuenta>() { };
+        public List<int> amigos = new List<int>() { };
+        public List<int> favoritos = new List<int>() { };
         public string carrera;
         public List<Reporte> reportes = new List<Reporte>() { };
 
@@ -32,6 +32,18 @@ namespace Proyecto_Omega
             email = miEmail;
             carrera = miCarrera;
             ID = miRUT;
+        }
+
+        public void CargarDatos(List<int> miApuntesSubidos, List<int> miValoracionCuenta, 
+                                List<int> miCursosRealizados, List<int> miAmigos, 
+                                List<int> miFavoritos, List<Reporte> miReporte)
+        {
+            apuntesSubidos = miApuntesSubidos;
+            valoracionCuenta = miValoracionCuenta;
+            cursosRealizados = miCursosRealizados;
+            amigos = miAmigos;
+            favoritos = miFavoritos;
+            reportes = miReporte;
         }
 
         public bool SubirApunte(Object[] miDatos, List<Apunte> TodosApuntes)  
@@ -202,9 +214,9 @@ namespace Proyecto_Omega
             List<Cuenta> cuenta = BuscarCuenta(RUTCuenta, TodasCuentas);
             if (cuenta.Count == 1)
             {
-                if (!amigos.Contains(cuenta[0]))
+                if (!amigos.Contains(cuenta[0].ID))
                 {
-                    amigos.Add(cuenta[0]);
+                    amigos.Add(cuenta[0].ID);
                     return true;
                 }
             }
@@ -216,9 +228,9 @@ namespace Proyecto_Omega
             List<Cuenta> cuenta = BuscarCuenta(RUTCuenta, TodasCuentas);
             if (cuenta.Count == 1)
             {
-                if (amigos.Contains(cuenta[0]))
+                if (amigos.Contains(cuenta[0].ID))
                 {
-                    amigos.Remove(cuenta[0]);
+                    amigos.Remove(cuenta[0].ID);
                     return true;
                 }
             }
@@ -230,9 +242,9 @@ namespace Proyecto_Omega
             List<Cuenta> cuenta = BuscarCuenta(RUTCuenta, TodasCuentas);
             if (cuenta.Count == 1)
             {
-                if (!favoritos.Contains(cuenta[0]))
+                if (!favoritos.Contains(cuenta[0].ID))
                 {
-                    favoritos.Add(cuenta[0]);
+                    favoritos.Add(cuenta[0].ID);
                     return true;
                 }
             }
@@ -244,9 +256,9 @@ namespace Proyecto_Omega
             List<Cuenta> cuenta = BuscarCuenta(RUTCuenta, TodasCuentas);
             if (cuenta.Count == 1)
             {
-                if (!favoritos.Contains(cuenta[0]))
+                if (!favoritos.Contains(cuenta[0].ID))
                 {
-                    favoritos.Add(cuenta[0]);
+                    favoritos.Add(cuenta[0].ID);
                     return true;
                 }
             }

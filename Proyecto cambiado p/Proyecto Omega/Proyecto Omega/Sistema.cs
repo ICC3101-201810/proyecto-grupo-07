@@ -11,7 +11,8 @@ namespace Proyecto_Omega
     {
         List<Cuenta> listaCuentas = new List<Cuenta>() { };
         List<Apunte> listaApuntes = new List<Apunte>() { };
-        List<Curso> listaCursos = new List<Curso>() { new Curso("nombre", "facultad", "carrera", new List<string>() { })};
+        List<Curso> listaCursos = new List<Curso>() { new Curso("nombre", "facultad", "carrera", 
+                                                                new List<string>() { })};
         Cuenta cuentaLog = new Admin(-1, "Sistema", "", "Sistema", "", "", "");
         Menu menu = new Menu();
         int auxParse;
@@ -29,6 +30,28 @@ namespace Proyecto_Omega
                 }
             }
             return false;
+        }
+
+        public void GuardarDatos()
+        {
+            foreach (Cuenta i in listaCuentas)
+            {
+                if (i is Admin)
+                {
+                    List<string> datos = new List<string>() { };
+                    datos.Add(i.ID.ToString());
+                    datos.Add(i.nombre);
+                    datos.Add(i.apellido);
+                    datos.Add(i.nombreUsuario);
+                    datos.Add(i.claveAcceso);
+                    datos.Add(i.email);
+                    datos.Add(i.carrera);
+                    datos.Add(String.Join(", ", i.apuntesSubidos.ToArray()));
+                    datos.Add(String.Join(", ", i.valoracionCuenta.ToArray()));
+                    datos.Add(String.Join(", ", i.cursosRealizados.ToArray()));
+
+                }
+            }
         }
 
         //Opcion de una Cuenta

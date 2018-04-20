@@ -8,12 +8,16 @@ namespace Proyecto_Omega
 {
     public class Cuenta
     {
-        private int id;
+        private static int m_Counter = 0;
+
+        public int ID { get; set; }
+
         public string nombre;
         public string apellido;
         public string nombreUsuario;
         public string claveAcceso;
         public string email;
+        public string RUT;
         public List<Apunte> apuntesSubidos = new List<Apunte>() { };
         public int valoracionCuenta = 0;
         public List<Curso> cursosRealizados = new List<Curso>() { };
@@ -30,6 +34,7 @@ namespace Proyecto_Omega
             claveAcceso = miClaveAcceso;
             email = miEmail;
             carrera = miCarrera;
+            this.ID = System.Threading.Interlocked.Increment(ref m_Counter);
         }
 
     }

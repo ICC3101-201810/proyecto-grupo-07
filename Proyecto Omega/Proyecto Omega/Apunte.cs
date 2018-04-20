@@ -8,7 +8,10 @@ namespace Proyecto_Omega
 {
     public class Apunte
     {
-        public int ID;
+        private static int m_Counter = 0;
+
+        public int Id { get; set; }
+
         public Cuenta autor;
         public string titulo;
         public string curso;

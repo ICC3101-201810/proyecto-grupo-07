@@ -8,7 +8,10 @@ namespace Proyecto_Omega
 {
     public class Curso
     {
-        public int ID;
+        private static int m_Counter = 0;
+
+        public int Id { get; set; }
+
         public string nombreCurso;
         public string facultad;
         public List<Apunte> apuntes = new List<Apunte>() { };

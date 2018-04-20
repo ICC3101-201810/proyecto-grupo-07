@@ -34,14 +34,18 @@ namespace Proyecto_Omega
             RUT = miRUT;
         }
 
-        public Apunte SubirApunte(Object[] miDatos)  // Recibe un array con todos los parametros
-        {                                            // para crear un apunte
-            Apunte miApunte = new Apunte(this, (string)miDatos[0], (Curso)miDatos[1], (List<string>)miDatos[2],
-                             (string)miDatos[3], (string)miDatos[4]);
-            apuntesSubidos.Add(miApunte.ID);
-            Curso auxCurso = (Curso)miDatos[1];
-            auxCurso.apuntes.Add(miApunte.ID);
-            return miApunte;
+        public bool SubirApunte(Object[] miDatos, List<Apunte> TodosApuntes)  
+        {
+            Curso auxCurso = (Curso)miDatos[2];
+            if (cursosRealizados.Contains(auxCurso.ID))
+            {
+                Apunte miApunte = new Apunte(this, (string)miDatos[0], (Curso)miDatos[1], (List<string>)miDatos[2],
+                                 (string)miDatos[3], (string)miDatos[4]);
+                apuntesSubidos.Add(miApunte.ID);
+                auxCurso.apuntes.Add(miApunte.ID);
+                return true;
+            }
+            return false;
         }
 
         //Busca solo en los apuntes que ha subido
@@ -165,6 +169,34 @@ namespace Proyecto_Omega
                 if (TodasCuentas[i].RUT == RUTCuenta)
                 {
                     cuentaEncontrada.Add(TodasCuentas[i]);
+                }
+            }
+            return cuentaEncontrada;  // Las unicas opciones son una lista de largo 0 o 1
+        }
+
+        public List<Profesor> BuscarCuentaProfesor(int RUTCuentaProfesor, 
+                                                 List<Profesor> TodasCuentasProfesor)
+        {
+            List<Profesor> cuentaEncontrada = new List<Profesor>() { };
+            for (int i = 0; i < TodasCuentasProfesor.Count; i++)
+            {
+                if (TodasCuentasProfesor[i].RUT == RUTCuentaProfesor)
+                {
+                    cuentaEncontrada.Add(TodasCuentasProfesor[i]);
+                }
+            }
+            return cuentaEncontrada;  // Las unicas opciones son una lista de largo 0 o 1
+        }
+
+        public List<Admin> BuscarCuentaAdmin(int RUTCuentaAdmin,
+                                                 List<Admin> TodasCuentasAdmin)
+        {
+            List<Admin> cuentaEncontrada = new List<Admin>() { };
+            for (int i = 0; i < TodasCuentasAdmin.Count; i++)
+            {
+                if (TodasCuentasAdmin[i].RUT == RUTCuentaAdmin)
+                {
+                    cuentaEncontrada.Add(TodasCuentasAdmin[i]);
                 }
             }
             return cuentaEncontrada;  // Las unicas opciones son una lista de largo 0 o 1

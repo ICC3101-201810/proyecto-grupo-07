@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Proyecto_Omega
 {
-    class Admin : Cuenta
+    public class Admin : Cuenta
     {
         public Admin(int RUT, string Nombre, string Apellido, string NombreUsuario, string ClaveAcceso,
                      string Email, string Carrera)
@@ -76,6 +76,21 @@ namespace Proyecto_Omega
                 if (!cuenta[0].cursosRealizados.Contains(IDCurso))
                 {
                     cuenta[0].cursosRealizados.Add(IDCurso);
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public bool AgregarCursoProfesor(int RUTCuentaProfesor, int IDCurso, 
+                                         List<Profesor> TodasCuentasProfesor)
+        {
+            List<Profesor> cuenta = BuscarCuentaProfesor(RUTCuentaProfesor, TodasCuentasProfesor);
+            if (cuenta.Count == 1)
+            {
+                if (!cuenta[0].cursosEnsena.Contains(IDCurso))
+                {
+                    cuenta[0].cursosEnsena.Add(IDCurso);
                     return true;
                 }
             }

@@ -25,6 +25,7 @@ namespace Proyecto_Omega
             facultad = Facultad;
             carrera = Carrera;
             topico = Topico;
+            this.ID = System.Threading.Interlocked.Increment(ref m_Counter);
         }
     }
 }

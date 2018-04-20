@@ -37,5 +37,20 @@ namespace Proyecto_Omega
             this.ID = System.Threading.Interlocked.Increment(ref m_Counter);
         }
 
+        public List<String> TituloCuenta()
+        {
+            List<string> titulos = new List<string>() { };
+            for (int i = 0; i < this.apuntesSubidos.Count; i++)
+            {
+                titulos.Add(this.apuntesSubidos[i].titulo);
+            }
+            return titulos;
+        }
+
+        public Apunte SubirApunte(Object[] miDatos)
+        {
+            return new Apunte(this, (string)miDatos[0], (string)miDatos[1], (List<string>)miDatos[2],
+                             (string)miDatos[3], (string)miDatos[4]);
+        }
     }
 }

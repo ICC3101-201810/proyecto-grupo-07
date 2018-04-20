@@ -19,11 +19,11 @@ namespace Proyecto_Omega
         public string carrera;
         public int valoracion = 0;
         public string contenido;
-        public bool publico;
+        public bool publico = false;
         public List<Cuenta> usuariosCompartido = new List<Cuenta>() { };
 
         public Apunte(Cuenta Autor, string Titulo, string Curso, List<string> Topico, string Carrera, 
-                      string Contenido, bool Publico)
+                      string Contenido)
         {
             autor = Autor;
             titulo = Titulo;
@@ -31,7 +31,7 @@ namespace Proyecto_Omega
             topico = Topico;
             carrera = Carrera;
             contenido = Contenido;
-            publico = Publico;
+            this.ID = System.Threading.Interlocked.Increment(ref m_Counter);
         }
     }
 }

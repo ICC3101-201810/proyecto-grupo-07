@@ -9,40 +9,62 @@ namespace Proyecto_Omega
 {
     class Sistema
     {
-        List<Cuenta> listaCuentas;
+        List<Cuenta> listaCuentas = new List<Cuenta>();
+        List<Apunte> listaApuntes = new List<Apunte>();
+        //List<Carrera> listaCarreras;
 
-        public bool verificarContrasena(string miNombreUsuario, string miClaveAcceso)
+        public int verificarContrasena(string miNombreUsuario, string miClaveAcceso)
         {
-            foreach (Cuenta revisionCuentas in listaCuentas)
+            Console.WriteLine("llamo al metodo");
+            Console.WriteLine(listaCuentas.Count);
+            Console.WriteLine("asd");
+            for (int i = 0; i < listaCuentas.Count; i++)
             {
-                if (revisionCuentas.nombreUsuario==miNombreUsuario && revisionCuentas.claveAcceso==miClaveAcceso)
+                Cuenta revisionCuentas = listaCuentas[i];
+                Console.WriteLine(revisionCuentas.tipo);
+                if (revisionCuentas.nombreUsuario == miNombreUsuario && revisionCuentas.claveAcceso == miClaveAcceso)
                 {
-                    return true;
+                    if (revisionCuentas.tipo=="Estudiante")
+                    {
+                        return 11;
+                    }
+                    if (revisionCuentas.tipo=="Profesor")
+                    {
+                        return 12;
+                    }
+                    if (revisionCuentas.tipo=="Administrador")
+                    {
+                        return 13;
+                    }
                 }
             }
-            return false;
+
+            return 10 ;
         }
 
 
         public void crearCuenta()
         {
-            Console.Write("Ingrese su Rut: ");int miId = Int32.Parse(Console.ReadLine()); 
-            Console.Write("Ingrese su Rut: ");string miNombre = Console.ReadLine();
-            Console.Write("Ingrese su Rut: ");string miApellido = Console.ReadLine();
-            Console.Write("Ingrese su Rut: ");string miNombreUsuario = Console.ReadLine();
-            Console.Write("Ingrese su Rut: ");string miClaveAcceso = Console.ReadLine();
-            Console.Write("Ingrese su Rut: ");string miEmail = Console.ReadLine();
-            Console.Write("Ingrese su Rut: ");string miCarrera = Console.ReadLine();
+            Console.Write("Ingrese su Rut(sin puntos ni guion): ");int miId = Int32.Parse(Console.ReadLine()); 
+            Console.Write("Ingrese su nombre: ");string miNombre = Console.ReadLine();
+            Console.Write("Ingrese su apellido: ");string miApellido = Console.ReadLine();
+            Console.Write("Ingrese su nombre de Usuario: ");string miNombreUsuario = Console.ReadLine();
+            Console.Write("Ingrese su contrasena: ");string miClaveAcceso = Console.ReadLine();
+            Console.Write("Ingrese su email: ");string miEmail = Console.ReadLine();
+            Console.Write("Seleccione la carrera que cursa: ");int miCarrera = Int32.Parse(Console.ReadLine());
 
-            Cuenta nuevaCuenta = new Cuenta(miId, miNombre, miApellido, miNombreUsuario, miClaveAcceso, miEmail, miCarrera);
+            Cuenta nuevaCuenta = new Cuenta(miId, miNombre, miApellido, miNombreUsuario, miClaveAcceso, miEmail,"Estudiante", miCarrera);
             listaCuentas.Add(nuevaCuenta);
+            Console.Clear();
+            Console.WriteLine("Tu Cuenta a sido creada exitosamente");
+
         }
 
         public void eliminarCuenta(int miId)
         {
             foreach (Cuenta revisionCuentas in listaCuentas)
             {
-                if (revisionCuentas.id==miId)
+                if (revisionCuentas.RUT==miId)
                 {
                     Console.WriteLine("La cuenta de {0} {1} ha sido eliminada satisfactoriamente", revisionCuentas.nombre, revisionCuentas.apellido);
                     listaCuentas.Remove(revisionCuentas);

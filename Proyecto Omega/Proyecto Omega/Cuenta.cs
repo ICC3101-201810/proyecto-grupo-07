@@ -11,35 +11,26 @@ namespace Proyecto_Omega
         private int id;
         public string nombre;
         public string apellido;
-        string nombreUsuario;
-        string claveAcceso;
-        string tipo;
-        string email;
-        List<int> apuntesSubidos;
-        int valoracionCuenta;
-        List<int> cursosRealizados;
-        List<int> amigos;
-        List<int> cuentaFavoritos;
-        string carrera;
+        public string nombreUsuario;
+        public string claveAcceso;
+        public string email;
+        public List<Apunte> apuntesSubidos = new List<Apunte>() { };
+        public int valoracionCuenta = 0;
+        public List<Curso> cursosRealizados = new List<Curso>() { };
+        public List<Cuenta> amigos = new List<Cuenta>() { };
+        public List<Cuenta> cuentaFavoritos = new List<Cuenta>() { };
+        public string carrera;
 
-        public Cuenta(int miId, string miNombre,string miApellido,string miNombreUsuario,string miClaveAcceso,string miTipo,string miEmail,List<int> miApuntesSubidos,int miValoriacionCuenta,List<int> miCursosRealizados,List<int> miAmigos,List<int> miCuentaFavoritos,string miCarrera)
+        public Cuenta(string miNombre,string miApellido,string miNombreUsuario, 
+                      string miClaveAcceso,string miEmail,string miCarrera)
         {
-            id = miId;
             nombre = miNombre;
             apellido = miApellido;
             nombreUsuario = miNombreUsuario;
             claveAcceso = miClaveAcceso;
-            tipo = miTipo;
             email = miEmail;
-            apuntesSubidos = miApuntesSubidos;
-            valoracionCuenta = miValoriacionCuenta;
-            cursosRealizados = miCursosRealizados;
-            amigos = miAmigos;
-            cuentaFavoritos = miCuentaFavoritos;
             carrera = miCarrera;
-
         }
-
 
     }
 }

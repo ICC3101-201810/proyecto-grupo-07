@@ -10,7 +10,7 @@ namespace Proyecto_Omega
     {
         private static int m_Counter = 0;
 
-        public int Id { get; set; }
+        public int ID { get; set; }
 
         public Cuenta autor;
         public string titulo;

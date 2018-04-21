@@ -18,6 +18,10 @@ namespace Proyecto_Omega
                 Console.WriteLine("{0}", i.nombre);
             }
             Console.ReadLine();
+            miSistema.GuardarDatos();
+            Console.ReadLine();
+            miSistema.CargarDatos();
+            Console.ReadLine();
         }
     }
 }

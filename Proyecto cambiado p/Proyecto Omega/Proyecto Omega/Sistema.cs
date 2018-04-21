@@ -11,8 +11,8 @@ namespace Proyecto_Omega
     {
         public List<Cuenta> listaCuentas = new List<Cuenta>() { };
         public List<Apunte> listaApuntes = new List<Apunte>() { };
-        public List<Curso> listaCursos = new List<Curso>() { new Curso("nombre", "facultad", "carrera", 
-                                                                new List<string>() { })};
+        public List<Curso> listaCursos = new List<Curso>(){ };
+        public List<Reporte> listaReportes = new List<Reporte>() { };
         Cuenta cuentaLog = new Admin(-1, "Sistema", "", "Sistema", "", "", "");
         Menu menu = new Menu();
         int auxParse;
@@ -36,7 +36,7 @@ namespace Proyecto_Omega
         {
             foreach (Cuenta i in listaCuentas)
             {
-                if (i is Admin)
+                if (i is Cuenta)
                 {
                     List<string> datos = new List<string>() { };
                     datos.Add(i.ID.ToString());
@@ -51,8 +51,117 @@ namespace Proyecto_Omega
                     datos.Add(String.Join(", ", i.cursosRealizados.ToArray()));
                     datos.Add(String.Join(", ", i.amigos.ToArray()));
                     datos.Add(String.Join(", ", i.favoritos.ToArray()));
+                    datos.Add(String.Join(", ", i.reportes.ToArray()));
+
+                    string directorio = Directory.GetCurrentDirectory();
+                    string auxDirectorio = String.Format("\\Cuenta\\{0}.txt", datos[0]);
+                    System.IO.File.WriteAllLines(directorio + auxDirectorio, datos);
+                }
+                else if (i is Profesor)
+                {
+                    List<string> datos = new List<string>() { };
+                    datos.Add(i.ID.ToString());
+                    datos.Add(i.nombre);
+                    datos.Add(i.apellido);
+                    datos.Add(i.nombreUsuario);
+                    datos.Add(i.claveAcceso);
+                    datos.Add(i.email);
+                    datos.Add(i.carrera);
+                    datos.Add(String.Join(", ", i.apuntesSubidos.ToArray()));
+                    datos.Add(String.Join(", ", i.valoracionCuenta.ToArray()));
+                    datos.Add(String.Join(", ", i.cursosRealizados.ToArray()));
+                    datos.Add(String.Join(", ", i.amigos.ToArray()));
+                    datos.Add(String.Join(", ", i.favoritos.ToArray()));
+                    datos.Add(String.Join(", ", i.reportes.ToArray()));
+                    datos.Add(String.Join(", ", ((Profesor)i).cursosEnsena.ToArray()));
+
+                    string directorio = Directory.GetCurrentDirectory();
+                    string auxDirectorio = String.Format("\\Profesor\\{0}.txt", datos[0]);
+                    System.IO.File.WriteAllLines(directorio + auxDirectorio, datos);
+                }
+                else if (i is Admin)
+                {
+                    List<string> datos = new List<string>() { };
+                    datos.Add(i.ID.ToString());
+                    datos.Add(i.nombre);
+                    datos.Add(i.apellido);
+                    datos.Add(i.nombreUsuario);
+                    datos.Add(i.claveAcceso);
+                    datos.Add(i.email);
+                    datos.Add(i.carrera);
+                    datos.Add(String.Join(", ", i.apuntesSubidos.ToArray()));
+                    datos.Add(String.Join(", ", i.valoracionCuenta.ToArray()));
+                    datos.Add(String.Join(", ", i.cursosRealizados.ToArray()));
+                    datos.Add(String.Join(", ", i.amigos.ToArray()));
+                    datos.Add(String.Join(", ", i.favoritos.ToArray()));
+                    datos.Add(String.Join(", ", i.reportes.ToArray()));
+
+                    string directorio = Directory.GetCurrentDirectory();
+                    string auxDirectorio = String.Format("\\Admin\\{0}.txt", datos[0]);
+                    System.IO.File.WriteAllLines(directorio + auxDirectorio, datos);
 
                 }
+            }
+
+            foreach (Curso i in listaCursos)
+            {
+                List<string> datos = new List<string>() { };
+                datos.Add(i.nombreCurso);
+                datos.Add(i.facultad);
+                datos.Add(i.carrera);
+                datos.Add(String.Join(", ", i.topico.ToArray()));
+                datos.Add(String.Join(", ", i.apuntes.ToArray()));
+                datos.Add(String.Join(", ", i.dificultadValorada.ToArray()));
+
+                string directorio = Directory.GetCurrentDirectory();
+                string auxDirectorio = String.Format("\\Curso\\{0}.txt", datos[0]);
+                System.IO.File.WriteAllLines(directorio + auxDirectorio, datos);
+            }
+
+            foreach (Apunte i in listaApuntes)
+            {
+                List<string> datos = new List<string>() { };
+                datos.Add(i.autor.ID.ToString());
+                datos.Add(i.titulo);
+                datos.Add(i.curso.ID.ToString());
+                datos.Add(String.Join(", ", i.topico.ToArray()));
+                datos.Add(i.carrera);
+                datos.Add(i.contenido);
+                datos.Add(String.Join(", ", i.valoracion.ToArray()));
+                datos.Add(i.publico.ToString());
+                List<string> auxDatos = i.reportes.ToList().Where(x => x = i.reportes.ID);
+                datos.Add(String.Join(", ", i.reportes.ToArray()));
+
+                string directorio = Directory.GetCurrentDirectory();
+                string auxDirectorio = String.Format("\\Curso\\{0}.txt", datos[0]);
+                System.IO.File.WriteAllLines(directorio + auxDirectorio, datos);
+            }
+        }
+
+        public void CargarDatos()
+        {
+            string directorio = Directory.GetCurrentDirectory();
+
+            foreach (string file in Directory.EnumerateFiles(directorio + "\\Cuenta", "*.txt"))
+            {
+                string content = File.ReadAllText(file);
+                List<String> data = content.Split('\n').ToList();
+                Cuenta auxCuenta = new Cuenta(Int32.Parse(data[0]), data[1], data[2], data[3], 
+                                              data[4], data[5], data[6]);
+            }
+            foreach (string file in Directory.EnumerateFiles(directorio + "\\Profesor", "*.txt"))
+            {
+                string content = File.ReadAllText(file);
+                List<String> data = content.Split('\n').ToList();
+                Cuenta auxCuenta = new Profesor(Int32.Parse(data[0]), data[1], data[2], data[3],
+                                                data[4], data[5], data[6]);
+            }
+            foreach (string file in Directory.EnumerateFiles(directorio + "\\Admin", "*.txt"))
+            {
+                string content = File.ReadAllText(file);
+                List<String> data = content.Split('\n').ToList();
+                Cuenta auxCuenta = new Admin(Int32.Parse(data[0]), data[1], data[2], data[3],
+                                             data[4], data[5], data[6]);
             }
         }
 

@@ -16,11 +16,11 @@ namespace Proyecto_Omega
         public int ID;
         public List<int> apuntesSubidos = new List<int>() { };    // Lista de los ID de los apuntes
         public List<int> valoracionCuenta = new List<int>() { };  // que ha subido
-        public List<int> cursosRealizados = new List<int>() { 1};  // ID de cursos
+        public List<int> cursosRealizados = new List<int>() { };  // ID de cursos
         public List<int> amigos = new List<int>() { };
         public List<int> favoritos = new List<int>() { };
         public string carrera;
-        public List<Reporte> reportes = new List<Reporte>() { };
+        public List<int> reportes = new List<int>() { };
 
         public Cuenta(int miRUT, string miNombre,string miApellido,string miNombreUsuario, 
                       string miClaveAcceso,string miEmail,string miCarrera)
@@ -36,7 +36,7 @@ namespace Proyecto_Omega
 
         public void CargarDatos(List<int> miApuntesSubidos, List<int> miValoracionCuenta, 
                                 List<int> miCursosRealizados, List<int> miAmigos, 
-                                List<int> miFavoritos, List<Reporte> miReporte)
+                                List<int> miFavoritos, List<int> miReporte)
         {
             apuntesSubidos = miApuntesSubidos;
             valoracionCuenta = miValoracionCuenta;
@@ -187,12 +187,28 @@ namespace Proyecto_Omega
             return cuentaEncontrada;  // Las unicas opciones son una lista de largo 0 o 1
         }
 
-        public bool ReportarCuenta(int RUTCuenta, List<Cuenta> TodasCuentas, string RazonReporte)
+        public List<Reporte> BuscarReporte(int IDReporte, List<Reporte> TodosReportes)
+        {
+            List<Reporte> reporteEncontrado = new List<Reporte>() { };
+            for (int i = 0; i < TodosReportes.Count; i++)
+            {
+                if (TodosReportes[i].ID == IDReporte)
+                {
+                    reporteEncontrado.Add(TodosReportes[i]);
+                }
+            }
+            return reporteEncontrado;  // Las unicas opciones son una lista de largo 0 o 1
+        }
+
+        public bool ReportarCuenta(int RUTCuenta, string RazonReporte, List<Cuenta> TodasCuentas, 
+                                   List<Reporte> TodosReportes)
         {
             List<Cuenta> cuenta = BuscarCuenta(RUTCuenta, TodasCuentas);
             if (cuenta.Count == 1)
             {
-                cuenta[0].reportes.Add(new Reporte(this, RazonReporte));
+                Reporte auxReporte = new Reporte(this, RazonReporte);
+                cuenta[0].reportes.Add(auxReporte.ID);
+                TodosReportes.Add(auxReporte);
                 return true;
             }
             return false;

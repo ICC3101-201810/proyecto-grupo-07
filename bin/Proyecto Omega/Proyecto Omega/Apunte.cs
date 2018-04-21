@@ -34,5 +34,40 @@ namespace Proyecto_Omega
             contenido = Contenido;
             ID = System.Threading.Interlocked.Increment(ref m_Counter);
         }
+
+        public void CargarDatos(List<int> miValor, bool miPublico)
+        {
+            valoracion = miValor;
+            publico = miPublico;
+        }
+
+        public void ImprimirInfo(Cuenta miAutor)
+        {
+            if (publico || autor == miAutor)
+            {
+                Console.Write("\nID: {0}\n" +
+                            "Autor: {1}\n" +
+                            "Titulo: {2}\n" +
+                            "Curso: {3}\n" +
+                            "Topicos: ",ID, autor.ID, titulo, curso);
+                Console.Write("[{0}]", string.Join(", ", topico));
+                Console.Write("\nCarrera: {0}\n" +
+                              "Valoracion: {1}\n" +
+                              "Contenido: {2}\n",carrera, valoracion, contenido);
+            }
+        }
+
+        public void ImprimirInfoSi()
+        {
+            Console.Write("\nID: {0}\n" +
+                          "Autor: {1}\n" +
+                          "Titulo: {2}\n" +
+                          "Curso: {3}\n" +
+                          "Topicos: ", ID, autor.ID, titulo, curso);
+            Console.Write("[{0}]", string.Join(", ", topico));
+            Console.Write("\nCarrera: {0}\n" +
+                          "Valoracion: {1}\n" +
+                          "Contenido: {2}\n", carrera, valoracion, contenido);
+        }
     }
 }

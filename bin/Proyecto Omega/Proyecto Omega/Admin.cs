@@ -17,7 +17,7 @@ namespace Proyecto_Omega
             bool checkRUT = true;
             for (int i = 0; i < TodasCuentas.Count; i++)
             {
-                if (TodasCuentas[i].RUT == (int)DatosCuenta[0]) // Se revisa que no haya una cuenta
+                if (TodasCuentas[i].ID == (int)DatosCuenta[0] && (int)DatosCuenta[0] != -1) // Se revisa que no haya una cuenta
                 {                                               // con ese RUT creado
                     checkRUT = false;
                 }
@@ -25,6 +25,48 @@ namespace Proyecto_Omega
             if (checkRUT)
             {
                 TodasCuentas.Add(new Cuenta((int)DatosCuenta[0], (string)DatosCuenta[1],
+                                           (string)DatosCuenta[2], (string)DatosCuenta[3],
+                                           (string)DatosCuenta[4], (string)DatosCuenta[5],
+                                           (string)DatosCuenta[6]));
+                return true;
+            }
+            return false;
+        }
+
+        public bool CrearProfesor(Object[] DatosCuenta, List<Cuenta> TodasCuentas)
+        {
+            bool checkRUT = true;
+            for (int i = 0; i < TodasCuentas.Count; i++)
+            {
+                if (TodasCuentas[i].ID == (int)DatosCuenta[0]) // Se revisa que no haya una cuenta
+                {                                               // con ese RUT creado
+                    checkRUT = false;
+                }
+            }
+            if (checkRUT)
+            {
+                TodasCuentas.Add(new Profesor((int)DatosCuenta[0], (string)DatosCuenta[1],
+                                           (string)DatosCuenta[2], (string)DatosCuenta[3],
+                                           (string)DatosCuenta[4], (string)DatosCuenta[5],
+                                           (string)DatosCuenta[6]));
+                return true;
+            }
+            return false;
+        }
+
+        public bool CrearAdmin(Object[] DatosCuenta, List<Cuenta> TodasCuentas)
+        {
+            bool checkRUT = true;
+            for (int i = 0; i < TodasCuentas.Count; i++)
+            {
+                if (TodasCuentas[i].ID == (int)DatosCuenta[0]) // Se revisa que no haya una cuenta
+                {                                               // con ese RUT creado
+                    checkRUT = false;
+                }
+            }
+            if (checkRUT)
+            {
+                TodasCuentas.Add(new Admin((int)DatosCuenta[0], (string)DatosCuenta[1],
                                            (string)DatosCuenta[2], (string)DatosCuenta[3],
                                            (string)DatosCuenta[4], (string)DatosCuenta[5],
                                            (string)DatosCuenta[6]));
@@ -83,14 +125,14 @@ namespace Proyecto_Omega
         }
 
         public bool AgregarCursoProfesor(int RUTCuentaProfesor, int IDCurso, 
-                                         List<Profesor> TodasCuentasProfesor)
+                                         List<Cuenta> TodasCuentas)
         {
-            List<Profesor> cuenta = BuscarCuentaProfesor(RUTCuentaProfesor, TodasCuentasProfesor);
+            List<Cuenta> cuenta = BuscarCuenta(RUTCuentaProfesor, TodasCuentas);
             if (cuenta.Count == 1)
             {
-                if (!cuenta[0].cursosEnsena.Contains(IDCurso))
+                if (!((Profesor)cuenta[0]).cursosEnsena.Contains(IDCurso))
                 {
-                    cuenta[0].cursosEnsena.Add(IDCurso);
+                    ((Profesor)cuenta[0]).cursosEnsena.Add(IDCurso);
                     return true;
                 }
             }

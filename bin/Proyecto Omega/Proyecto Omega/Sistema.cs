@@ -198,40 +198,46 @@ namespace Proyecto_Omega
                 List<String> data = content.Split('\n').ToList();
                 Cuenta auxCuenta = new Admin(Int32.Parse(data[0]), data[1], data[2], data[3],
                                              data[4], data[5], data[6]);
+                List<int> auxSubido;
+                List<int> auxValor;
+                List<int> auxCursosRealizados;
+                List<int> auxAmigos;
+                List<int> auxFavoritos;
+                List<int> auxReportes;
                 if (!(data[7].Length == 0))
                 {
-                    List<int> auxSubido = data[7].Split(',').Select(int.Parse).ToList();
+                    auxSubido = data[7].Split(',').Select(int.Parse).ToList();
                 }
                 else
                 {
-                    List<int> auxSubido = new List<int>() { };
+                    auxSubido = new List<int>() { };
                 }
-                if (!(data[7].Length == 0))
+                if (!(data[8].Length == 0))
                 {
-                    List<int> auxValor = data[8].Split(',').Select(int.Parse).ToList();
-                }
-                else
-                {
-                    List<int> auxValor = data[8].Split(',').Select(int.Parse).ToList();
-                }
-                if (!(data[7].Length == 0))
-                {
-                    List<int> auxCursosRealizados = data[9].Split(',').Select(int.Parse).ToList();
+                    auxValor = data[8].Split(',').Select(int.Parse).ToList();
                 }
                 else
                 {
-                    List<int> auxCursosRealizados = data[9].Split(',').Select(int.Parse).ToList();
+                    auxValor = data[8].Split(',').Select(int.Parse).ToList();
                 }
-                if (!(data[7].Length == 0))
+                if (!(data[9].Length == 0))
                 {
-                    List<int> auxAmigos = data[10].Split(',').Select(int.Parse).ToList();
+                    auxCursosRealizados = data[9].Split(',').Select(int.Parse).ToList();
+                }
+                else
+                {
+                    auxCursosRealizados = data[9].Split(',').Select(int.Parse).ToList();
+                }
+                if (!(data[10].Length == 0))
+                {
+                    auxAmigos = data[10].Split(',').Select(int.Parse).ToList();
                 }
                 else
                 {
                     auxAmigos = data[10].Split(',').Select(int.Parse).ToList(); List<int> auxSubido = new List<int>() { };
                 }
                
-                if (!(data[7].Length == 0))
+                if (!(data[11].Length == 0))
                 {
                     auxFavoritos = data[11].Split(',').Select(int.Parse).ToList();
                 }
@@ -240,7 +246,7 @@ namespace Proyecto_Omega
                     auxFavoritos = data[11].Split(',').Select(int.Parse).ToList();
                 }
                 
-                if (!(data[7].Length == 0))
+                if (!(data[12].Length == 0))
                 {
                     auxReportes = data[12].Split(',').Select(int.Parse).ToList();
                 }

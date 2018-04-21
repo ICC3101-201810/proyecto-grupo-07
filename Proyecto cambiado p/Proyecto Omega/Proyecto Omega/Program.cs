@@ -10,6 +10,9 @@ namespace Proyecto_Omega
     {
         static void Main(string[] args)
         {
+            Menu incioPrograma = new Menu();
+            incioPrograma.MenuInicio();
+
             Sistema miSistema = new Sistema();
 
             miSistema.crearCuenta();

@@ -46,7 +46,6 @@
     <Compile Include="Apunte.cs" />
     <Compile Include="Cuenta.cs" />
     <Compile Include="Curso.cs" />
-    <Compile Include="Menu Inicio.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="Profesor.cs" />
     <Compile Include="Program.cs" />

@@ -7,6 +7,7 @@ using System.IO;
 
 namespace Proyecto_Omega
 {
+
     public class Sistema
     {
         public List<Cuenta> listaCuentas = new List<Cuenta>() { };
@@ -18,6 +19,44 @@ namespace Proyecto_Omega
         int auxParse;
 
         public Sistema() { }
+
+        public void crearCuentaInicio()
+        {
+            while (true)
+            {
+                Console.Write("Ingrese su Rut (sin punto ni guion): ");string miRut = Console.ReadLine();
+
+                string[] Separados;
+                Separados = miRut.Split();
+                int verificador = 0;
+                foreach (string Num in Separados)
+                {
+                    if (Num!="1" && Num!="2" && Num != "3" && Num != "4" && Num != "5" && Num != "6" && Num != "7" && Num != "8" && Num != "9" && Num != "0")
+                    {
+                        Console.WriteLine("El rut no es valido porfavor vuelva a ingresarlo");
+                        verificador = 1;
+                    }
+                    
+                }
+                if (verificador==1)
+                {
+                    continue;
+                }
+                else
+                {
+                    int rut = Int32.Parse(miRut);
+                    break;
+                }
+            }
+            Console.Write("Ingrese su Nombre: "); string miNombre = Console.ReadLine();
+            Console.Write("Ingrese su Apellido: "); string miApellido = Console.ReadLine();
+            Console.Write("Ingrese su Nombre de Usuario: "); string miNombreUsuario = Console.ReadLine();
+            Console.Write("Ingrese su Clave: "); string miClaveAcceso = Console.ReadLine();
+            Console.Write("Ingrese su Mail: "); string miEmail = Console.ReadLine();
+            Console.Write("Ingrese su Carrera: "); string miCarrera = Console.ReadLine();
+            Cuenta nuevaCuenta = new Cuenta(miRut, miNombre, miApellido, miNombreUsuario, miClaveAcceso, miEmail,miCarrera);
+
+        }
 
         public bool VerificarContrasena(int miID, string miClaveAcceso)
         {

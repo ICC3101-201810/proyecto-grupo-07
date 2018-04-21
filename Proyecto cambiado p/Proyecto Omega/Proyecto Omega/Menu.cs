@@ -17,7 +17,33 @@ namespace Proyecto_Omega
                           "mejor material de estudio\n" +
                           "1-Inicio Sesion\n" +
                           "2-Crear Cuenta Nueva\n\n" +
-                          "Opcion :");
+                          "Opcion :");while (true)
+            {
+                string opcion = Console.ReadLine();
+                if (opcion!="1" && opcion!="2")
+                {
+                    Console.WriteLine("La opcion ingresada no es valida");
+                    Console.WriteLine("Porfavor vuelva a ingresar su opcion: ");
+                    continue;
+                }
+                if (opcion=="1")
+                {
+                    Console.WriteLine("Bienvenido");
+                    Console.Write("Usuario o rut: "); string usuario = Console.ReadLine();
+                    Console.Write("Contrasena: "); string contrasena = Console.ReadLine();
+                    Sistema Verificar = new Sistema();
+
+                    bool 
+                    MenuAdmin();
+                }
+                if (opcion == "2")
+                {
+                    Console.WriteLine("Gracias por unirte a esta red de estudio");
+                    Console.WriteLine("Sigue las instrucciones para crear tu cuenta");
+                    Sistema crearCuenta = new Sistema();
+                    crearCuenta.crearCuenta();                  
+                }
+            }
         }
 
         public void MenuCuenta()

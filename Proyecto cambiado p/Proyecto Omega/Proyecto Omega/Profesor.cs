@@ -85,7 +85,19 @@ namespace Proyecto_Omega
             }
             return false;
         }
-        
 
+        public void CargarDatos(List<int> miApuntesSubidos, List<int> miValoracionCuenta,
+                                List<int> miCursosRealizados, List<int> miAmigos,
+                                List<int> miFavoritos, List<int> miReporte, 
+                                List<int> miCursosEnsena)
+        {
+            apuntesSubidos = miApuntesSubidos;
+            valoracionCuenta = miValoracionCuenta;
+            cursosRealizados = miCursosRealizados;
+            amigos = miAmigos;
+            favoritos = miFavoritos;
+            reportes = miReporte;
+            cursosEnsena = miCursosEnsena;
+        }
     }
 }

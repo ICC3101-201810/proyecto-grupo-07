@@ -7,68 +7,40 @@ using System.IO;
 
 namespace Proyecto_Omega
 {
-
     public class Sistema
     {
         public List<Cuenta> listaCuentas = new List<Cuenta>() { };
         public List<Apunte> listaApuntes = new List<Apunte>() { };
         public List<Curso> listaCursos = new List<Curso>(){ };
         public List<Reporte> listaReportes = new List<Reporte>() { };
-        Cuenta cuentaLog = new Admin(-1, "Sistema", "", "Sistema", "", "", "");
-        Menu menu = new Menu();
+        public Cuenta cuentaLog = new Admin(-1, "Sistema", "", "Sistema", "", "", "");
         int auxParse;
 
         public Sistema() { }
 
-        public void crearCuentaInicio()
+        public int verificarContrasena(string miID, string miClaveAcceso)
         {
-            while (true)
+            for (int i = 0; i < listaCuentas.Count; i++)
             {
-                Console.Write("Ingrese su Rut (sin punto ni guion): ");string miRut = Console.ReadLine();
-
-                string[] Separados;
-                Separados = miRut.Split();
-                int verificador = 0;
-                foreach (string Num in Separados)
+                Cuenta revisionCuentas = listaCuentas[i];
+                if (revisionCuentas.ID == Int32.Parse(miID) && revisionCuentas.claveAcceso == miClaveAcceso)
                 {
-                    if (Num!="1" && Num!="2" && Num != "3" && Num != "4" && Num != "5" && Num != "6" && Num != "7" && Num != "8" && Num != "9" && Num != "0")
+                    if (revisionCuentas is Admin)
                     {
-                        Console.WriteLine("El rut no es valido porfavor vuelva a ingresarlo");
-                        verificador = 1;
+                        return 13;
                     }
-                    
-                }
-                if (verificador==1)
-                {
-                    continue;
-                }
-                else
-                {
-                    int rut = Int32.Parse(miRut);
-                    break;
+                    if (revisionCuentas is Profesor)
+                    {
+                        return 12;
+                    }
+                    if (revisionCuentas is Admin)
+                    {
+                        return 11;
+                    }
                 }
             }
-            Console.Write("Ingrese su Nombre: "); string miNombre = Console.ReadLine();
-            Console.Write("Ingrese su Apellido: "); string miApellido = Console.ReadLine();
-            Console.Write("Ingrese su Nombre de Usuario: "); string miNombreUsuario = Console.ReadLine();
-            Console.Write("Ingrese su Clave: "); string miClaveAcceso = Console.ReadLine();
-            Console.Write("Ingrese su Mail: "); string miEmail = Console.ReadLine();
-            Console.Write("Ingrese su Carrera: "); string miCarrera = Console.ReadLine();
-            Cuenta nuevaCuenta = new Cuenta(miRut, miNombre, miApellido, miNombreUsuario, miClaveAcceso, miEmail,miCarrera);
 
-        }
-
-        public bool VerificarContrasena(int miID, string miClaveAcceso)
-        {
-            foreach (Cuenta revisionCuentas in listaCuentas)
-            {
-                if (revisionCuentas.ID==miID && 
-                    revisionCuentas.claveAcceso==miClaveAcceso)
-                {
-                    return true;
-                }
-            }
-            return false;
+            return 10;
         }
 
         public void GuardarDatos()
@@ -91,6 +63,7 @@ namespace Proyecto_Omega
                     datos.Add(String.Join(", ", i.amigos.ToArray()));
                     datos.Add(String.Join(", ", i.favoritos.ToArray()));
                     datos.Add(String.Join(", ", i.reportes.ToArray()));
+
 
                     string directorio = Directory.GetCurrentDirectory();
                     string auxDirectorio = String.Format("\\Cuenta\\{0}.txt", datos[0]);
@@ -168,11 +141,13 @@ namespace Proyecto_Omega
                 datos.Add(i.contenido);
                 datos.Add(String.Join(", ", i.valoracion.ToArray()));
                 datos.Add(i.publico.ToString());
-                List<string> auxDatos = i.reportes.ToList().Where(x => x = i.reportes.ID);
-                datos.Add(String.Join(", ", i.reportes.ToArray()));
+                List<string> auxDatos = i.reportes.Select(o => o.ID.ToString()).ToList();
+                datos.Add(String.Join(", ", auxDatos));
+
+                Console.WriteLine("Guarda");
 
                 string directorio = Directory.GetCurrentDirectory();
-                string auxDirectorio = String.Format("\\Curso\\{0}.txt", datos[0]);
+                string auxDirectorio = String.Format("\\Apunte\\{0}.txt", datos[0]);
                 System.IO.File.WriteAllLines(directorio + auxDirectorio, datos);
             }
         }
@@ -181,32 +156,98 @@ namespace Proyecto_Omega
         {
             string directorio = Directory.GetCurrentDirectory();
 
-            foreach (string file in Directory.EnumerateFiles(directorio + "\\Cuenta", "*.txt"))
+            foreach (string file in Directory.EnumerateFiles(directorio + 
+                                                             "\\Cuenta", "*.txt"))
             {
                 string content = File.ReadAllText(file);
                 List<String> data = content.Split('\n').ToList();
                 Cuenta auxCuenta = new Cuenta(Int32.Parse(data[0]), data[1], data[2], data[3], 
                                               data[4], data[5], data[6]);
+                List<int> auxSubido = data[7].Split(',').Select(int.Parse).ToList();
+                List<int> auxValor = data[8].Split(',').Select(int.Parse).ToList();
+                List<int> auxCursosRealizados = data[9].Split(',').Select(int.Parse).ToList();
+                List<int> auxAmigos = data[10].Split(',').Select(int.Parse).ToList();
+                List<int> auxFavoritos = data[11].Split(',').Select(int.Parse).ToList();
+                List<int> auxReportes = data[12].Split(',').Select(int.Parse).ToList();
+                auxCuenta.CargarDatos(auxSubido, auxValor, auxCursosRealizados, auxAmigos, 
+                                      auxFavoritos, auxReportes);
+                listaCuentas.Add(auxCuenta);
             }
-            foreach (string file in Directory.EnumerateFiles(directorio + "\\Profesor", "*.txt"))
+            foreach (string file in Directory.EnumerateFiles(directorio + 
+                                                             "\\Profesor", "*.txt"))
             {
                 string content = File.ReadAllText(file);
                 List<String> data = content.Split('\n').ToList();
                 Cuenta auxCuenta = new Profesor(Int32.Parse(data[0]), data[1], data[2], data[3],
                                                 data[4], data[5], data[6]);
+                List<int> auxSubido = data[7].Split(',').Select(int.Parse).ToList();
+                List<int> auxValor = data[8].Split(',').Select(int.Parse).ToList();
+                List<int> auxCursosRealizados = data[9].Split(',').Select(int.Parse).ToList();
+                List<int> auxAmigos = data[10].Split(',').Select(int.Parse).ToList();
+                List<int> auxFavoritos = data[11].Split(',').Select(int.Parse).ToList();
+                List<int> auxReportes = data[12].Split(',').Select(int.Parse).ToList();
+                List<int> auxCursosEnsena = data[13].Split(',').Select(int.Parse).ToList();
+                ((Profesor)auxCuenta).CargarDatos(auxSubido, auxValor, auxCursosRealizados, auxAmigos,
+                                      auxFavoritos, auxReportes, auxCursosEnsena);
+                listaCuentas.Add(auxCuenta);
             }
-            foreach (string file in Directory.EnumerateFiles(directorio + "\\Admin", "*.txt"))
+            foreach (string file in Directory.EnumerateFiles(directorio + 
+                                                             "\\Admin", "*.txt"))
             {
                 string content = File.ReadAllText(file);
                 List<String> data = content.Split('\n').ToList();
                 Cuenta auxCuenta = new Admin(Int32.Parse(data[0]), data[1], data[2], data[3],
                                              data[4], data[5], data[6]);
+                List<int> auxSubido = data[7].Split(',').Select(int.Parse).ToList();
+                List<int> auxValor = data[8].Split(',').Select(int.Parse).ToList();
+                List<int> auxCursosRealizados = data[9].Split(',').Select(int.Parse).ToList();
+                List<int> auxAmigos = data[10].Split(',').Select(int.Parse).ToList();
+                List<int> auxFavoritos = data[11].Split(',').Select(int.Parse).ToList();
+                List<int> auxReportes = data[12].Split(',').Select(int.Parse).ToList();
+                auxCuenta.CargarDatos(auxSubido, auxValor, auxCursosRealizados, auxAmigos,
+                                      auxFavoritos, auxReportes);
+                listaCuentas.Add(auxCuenta);
+            }
+            foreach (string file in Directory.EnumerateFiles(directorio + 
+                                                             "\\Curso", "*.txt"))
+            {
+                string content = File.ReadAllText(file);
+                List<String> data = content.Split('\n').ToList();
+                List<String> auxTopico = data[3].Split(',').ToList();
+                Curso auxCurso = new Curso(data[0], data[1], data[2], auxTopico);
+                List<int> auxApuntes = data[4].Split(',').Select(int.Parse).ToList();
+                List<int> auxDificultad = data[5].Split(',').Select(int.Parse).ToList();
+                auxCurso.CargarDatos(auxApuntes, auxDificultad);
+                listaCursos.Add(auxCurso);
+            }
+            foreach (string file in Directory.EnumerateFiles(directorio + 
+                                                             "\\Apunte", "*.txt"))
+            {
+                bool auxPublico;
+                string content = File.ReadAllText(file);
+                List<String> data = content.Split('\n').ToList();
+                List<String> auxTopico = data[3].Split(',').ToList();
+                Cuenta auxCuenta = cuentaLog.BuscarCuenta(Int32.Parse(data[0]), 
+                                                          listaCuentas)[0];
+                Curso auxCurso = cuentaLog.BuscarCurso(Int32.Parse(data[2]), listaCursos)[0];
+                List<int> auxValor = data[6].Split(',').Select(int.Parse).ToList();
+                if (data[7].Equals("False"))
+                {
+                    auxPublico = false;
+                }
+                else
+                {
+                    auxPublico = true;
+                }
+                Apunte auxApunte = new Apunte(auxCuenta, data[1], auxCurso, auxTopico, data[4], data[5]);
+                auxApunte.CargarDatos(auxValor, auxPublico);
+                listaCursos.Add(auxCurso);
             }
         }
 
         //Opcion de una Cuenta
 
-        public void subirApunte()
+        public bool subirApunte()
         {
             Console.Write("\nIngrese el Titulo del Apunte: ");
             string miTitulo = Console.ReadLine().Replace(" ", "");
@@ -236,16 +277,19 @@ namespace Proyecto_Omega
                                           miCarrera, miInfo}, listaApuntes))
                 {
                     Console.WriteLine("Apunte subido con exito");
+                    return true;
                 }
                 else
                 {
                     Console.WriteLine("No se pudo subir el Apunte, revisa que hayas realizado " +
                                       "el curso");
+                    return false;
                 }
             }
             else
             {
                 Console.WriteLine("No se pudo encontrar un curso con ID {0}", miIDcurso);
+                return false;
             }
         }
 
@@ -288,7 +332,7 @@ namespace Proyecto_Omega
             }
         }
 
-        public void cambiarApunte()
+        public bool cambiarApunte()
         {
             string auxID;
             do
@@ -319,22 +363,25 @@ namespace Proyecto_Omega
                                                miTopicosMenos, miCarrera, miContenido}, listaApuntes))
                 {
                     Console.WriteLine("\nApunte actualizado con exito\n");
+                    return true;
                 }
                 else
                 {
                     Console.WriteLine("No se pudo actualizar el Apunte\n");
+                    return false;
                 }
             }
             else
             {
                 Console.WriteLine("\nNo se encontro un apunte con el ID {0} entre tus apuntes\n", 
                                   miID);
+                return false;
             }
         }
 
         //Opcion de Admin
 
-        public void crearCuenta()
+        public bool crearCuenta()
         {
             string auxID;
             do
@@ -359,10 +406,12 @@ namespace Proyecto_Omega
                                            miCarrera }, listaCuentas))
             {
                 Console.WriteLine("Cuenta {0} creada con exito!", miNombreUsuario);
+                return true;
             }
             else
             {
                 Console.WriteLine("No se pudo crear la cuenta");
+                return false;
             }
             
         }
@@ -382,6 +431,24 @@ namespace Proyecto_Omega
             
         }
 
-        public void crearCurso() { }
+        public void crearCurso()
+        {
+            Console.Write("Ingrese el Nombre: "); string miNombre = Console.ReadLine();
+            Console.Write("Ingrese la Facultad: "); string miFacultad = Console.ReadLine();
+            Console.Write("Ingrese la Carrera: "); string miCarrera = Console.ReadLine();
+            Console.Write("Ingrese los topicos separados por ',': ");
+            List<string> miTopicos = Console.ReadLine().Replace(" ", "").Split(',').ToList();
+
+            if (((Admin)cuentaLog).CrearCurso(new object[] {miNombre, miFacultad, miCarrera,
+                                              miTopicos}, listaCursos))
+            {
+                Console.WriteLine("Curso {0} creada con exito!", miNombre);
+            }
+            else
+            {
+                Console.WriteLine("No se pudo crear el curso");
+            }
+
+        }
     }
 }

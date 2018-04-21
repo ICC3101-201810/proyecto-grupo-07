@@ -16,7 +16,7 @@ namespace Proyecto_Omega
         public int ID;
         public List<int> apuntesSubidos = new List<int>() { };    // Lista de los ID de los apuntes
         public List<int> valoracionCuenta = new List<int>() { };  // que ha subido
-        public List<int> cursosRealizados = new List<int>() { };  // ID de cursos
+        public List<int> cursosRealizados = new List<int>() { 1};  // ID de cursos
         public List<int> amigos = new List<int>() { };
         public List<int> favoritos = new List<int>() { };
         public string carrera;
@@ -56,6 +56,7 @@ namespace Proyecto_Omega
                 apuntesSubidos.Add(miApunte.ID);
                 auxCurso.apuntes.Add(miApunte.ID);
                 TodosApuntes.Add(miApunte);
+                Console.WriteLine("SI");
                 return true;
             }
             return false;

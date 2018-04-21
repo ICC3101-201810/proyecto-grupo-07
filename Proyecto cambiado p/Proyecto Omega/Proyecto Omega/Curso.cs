@@ -27,5 +27,12 @@ namespace Proyecto_Omega
             topico = Topico;
             ID = System.Threading.Interlocked.Increment(ref m_Counter);
         }
+
+    
+        public void CargarDatos(List<int> miApuntes, List<int> miDificultad)
+        {
+            apuntes = miApuntes;
+            dificultadValorada = miDificultad;
+        }
     }
 }

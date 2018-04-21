@@ -10,25 +10,26 @@ namespace Proyecto_Omega
     {
         public void menuInicial()
         {
+            Console.WriteLine("Bienvenido a tu plataforma de apuntes");
+            Sistema sistema = new Sistema();
             while (true)
             {
-                Console.Write("Bienvenido a tu plataforma de apuntes" +
-                  "\nSi eres miembro inicia sesion o crea una para comenzar a disfrutar del mejor material de estudio" +
-                  "\n1-Inicio Sesion" +
-                  "\n2-Crear Cuenta Nueva"
-                  );
+                Console.Write("\nSi eres miembro inicia sesion o crea una para comenzar a " +
+                              "disfrutar del mejor material de estudio" +
+                              "\n1-Inicio Sesion" +
+                              "\n2-Crear Cuenta Nueva");
                 Console.Write("\nIngrese su opcion: "); string opcion = Console.ReadLine();
                 if (opcion == "1")
                 {
                     Console.Clear();
                     Console.Write("Ingrese usuario: "); string usuario = Console.ReadLine();
                     Console.Write("Ingrese contraseña: "); string contrasena = Console.ReadLine();
-                    Sistema verificar = new Sistema();
-                    int Verificacion = verificar.verificarContrasena(usuario, contrasena);
+                    int Verificacion = sistema.verificarContrasena(usuario, contrasena);
                     Console.WriteLine(Verificacion);
                     if (Verificacion==10)
                     {
-                        Console.WriteLine("El usuario y la contraseña no coinciden.\nPorfavor vuelva a ingresarla");
+                        Console.WriteLine("\nEl usuario y la contraseña no coinciden.\n" +
+                                          "Porfavor vuelva a ingresarla");
                         continue;
                     }
                     if (Verificacion == 11)
@@ -46,10 +47,11 @@ namespace Proyecto_Omega
                 }
                 if (opcion == "2")
                 {
-                    Console.WriteLine("Gracias por querer unirte a esta gran central de estudio.");
-                    Console.WriteLine("Se te solitcitaran tus datos a continuacion, porfavor sigue las instrucciones");
-                    Sistema llamarSistema = new Sistema();
-                    llamarSistema.crearCuenta();
+                    Console.WriteLine("Gracias por querer unirte a esta gran central de " +
+                                      "estudio.");
+                    Console.WriteLine("Se te solitcitaran tus datos a continuacion, porfavor " +
+                                      "sigue las instrucciones");
+                    sistema.crearCuenta();
 
                     paginaInicialEstudiante();
 

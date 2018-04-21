@@ -1,10 +1,10 @@
 12
-a
-a
-a
-clave
-mail
-carrera
+Nombre
+Apellido
+nUsuario
+Clave
+Mail
+Carrera
 
 
 

@@ -10,21 +10,25 @@ namespace Proyecto_Omega
     {
         static void Main(string[] args)
         {
-            Menu incioPrograma = new Menu();
-            incioPrograma.MenuInicio();
-
             Sistema miSistema = new Sistema();
 
+            miSistema.crearCurso();
             miSistema.crearCuenta();
             foreach(Cuenta i in miSistema.listaCuentas)
             {
-                Console.WriteLine("{0}", i.nombre);
+                i.SubirApunte(new object[] { "titulo", miSistema.listaCursos[0], new List<string>() { "topico" }, "Carrera", "Contenido" }, miSistema.listaApuntes);
             }
             Console.ReadLine();
             miSistema.GuardarDatos();
             Console.ReadLine();
-            miSistema.CargarDatos();
-            Console.ReadLine();
+            //Console.ReadLine();
+            //miSistema.CargarDatos();
+            //Console.ReadLine();
+            //foreach (Apunte i in miSistema.listaApuntes)
+            //{
+            //    i.ImprimirInfoSi();
+            //}
+            //Console.ReadLine();
         }
     }
 }

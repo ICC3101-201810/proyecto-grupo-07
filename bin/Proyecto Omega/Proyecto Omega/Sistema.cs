@@ -234,7 +234,7 @@ namespace Proyecto_Omega
                 }
                 else
                 {
-                    auxAmigos = data[10].Split(',').Select(int.Parse).ToList(); List<int> auxSubido = new List<int>() { };
+                    auxAmigos = data[10].Split(',').Select(int.Parse).ToList(); auxSubido = new List<int>() { };
                 }
                
                 if (!(data[11].Length == 0))

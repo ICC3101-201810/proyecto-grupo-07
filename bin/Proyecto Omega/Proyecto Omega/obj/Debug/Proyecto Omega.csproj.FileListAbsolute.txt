@@ -5,3 +5,7 @@ C:\Users\Pablo\Desktop\Proyecto Omega\Proyecto Omega\bin\Debug\Proyecto Omega.ex
 C:\Users\Pablo\Desktop\Proyecto Omega\Proyecto Omega\bin\Debug\Proyecto Omega.pdb
 C:\Users\Pablo\Desktop\Proyecto Omega\Proyecto Omega\obj\Debug\Proyecto Omega.exe
 C:\Users\Pablo\Desktop\Proyecto Omega\Proyecto Omega\obj\Debug\Proyecto Omega.pdb
+C:\Users\Pablo\Documents\GitHub\proyecto-grupo-07\bin\Proyecto Omega\Proyecto Omega\obj\Debug\Proyecto Omega.csprojResolveAssemblyReference.cache
+C:\Users\Pablo\Documents\GitHub\proyecto-grupo-07\bin\Proyecto Omega\Proyecto Omega\obj\Debug\Proyecto Omega.csproj.CoreCompileInputs.cache
+C:\Users\Pablo\Documents\GitHub\proyecto-grupo-07\bin\Proyecto Omega\Proyecto Omega\obj\Debug\Proyecto Omega.exe
+C:\Users\Pablo\Documents\GitHub\proyecto-grupo-07\bin\Proyecto Omega\Proyecto Omega\obj\Debug\Proyecto Omega.pdb

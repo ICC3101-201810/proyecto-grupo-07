@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Notes
 {
+    [Serializable()]
     public class Apunte
     {
-        private static int Contador_ID = 0;
+        public static int Contador_ID = 0;
 
         private int ID { get; set; } // ID, el sistema crea uno unico o se ingresa al crear el apunte?
         private int Autor { get; set; } //El ID del autor

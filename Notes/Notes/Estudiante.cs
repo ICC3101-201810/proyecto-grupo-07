@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Notes
 {
+    [Serializable()]
     class Estudiante : Cuenta
     {
         public Estudiante(int miRut, string miNombre, string miApellido, string miContrasena,

@@ -20,3 +20,14 @@ C:\Users\Pablo\Documents\GitHub\proyecto-grupo-07\Notes\Notes\obj\Debug\Notes.cs
 C:\Users\Pablo\Documents\GitHub\proyecto-grupo-07\Notes\Notes\obj\Debug\Notes.csproj.CoreCompileInputs.cache
 C:\Users\Pablo\Documents\GitHub\proyecto-grupo-07\Notes\Notes\obj\Debug\Notes.exe
 C:\Users\Pablo\Documents\GitHub\proyecto-grupo-07\Notes\Notes\obj\Debug\Notes.pdb
+C:\Users\Javier\Documents\GitHub\proyecto-grupo-07\Notes\Notes\bin\Debug\Notes.exe.config
+C:\Users\Javier\Documents\GitHub\proyecto-grupo-07\Notes\Notes\bin\Debug\Notes.exe
+C:\Users\Javier\Documents\GitHub\proyecto-grupo-07\Notes\Notes\bin\Debug\Notes.pdb
+C:\Users\Javier\Documents\GitHub\proyecto-grupo-07\Notes\Notes\obj\Debug\Notes.csprojResolveAssemblyReference.cache
+C:\Users\Javier\Documents\GitHub\proyecto-grupo-07\Notes\Notes\obj\Debug\Notes.Crear_Cuenta.resources
+C:\Users\Javier\Documents\GitHub\proyecto-grupo-07\Notes\Notes\obj\Debug\Notes.Inicio_Sesion.resources
+C:\Users\Javier\Documents\GitHub\proyecto-grupo-07\Notes\Notes\obj\Debug\Notes.Properties.Resources.resources
+C:\Users\Javier\Documents\GitHub\proyecto-grupo-07\Notes\Notes\obj\Debug\Notes.csproj.GenerateResource.cache
+C:\Users\Javier\Documents\GitHub\proyecto-grupo-07\Notes\Notes\obj\Debug\Notes.csproj.CoreCompileInputs.cache
+C:\Users\Javier\Documents\GitHub\proyecto-grupo-07\Notes\Notes\obj\Debug\Notes.exe
+C:\Users\Javier\Documents\GitHub\proyecto-grupo-07\Notes\Notes\obj\Debug\Notes.pdb

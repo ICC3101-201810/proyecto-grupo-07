@@ -54,7 +54,7 @@
             this.TBxRut.Name = "TBxRut";
             this.TBxRut.Size = new System.Drawing.Size(100, 20);
             this.TBxRut.TabIndex = 1;
-            this.TBxRut.Text = "Rut";
+            this.TBxRut.Tag = "";
             this.TBxRut.TextChanged += new System.EventHandler(this.TBxRut_TextChanged);
             // 
             // TBxNombre

@@ -26,7 +26,7 @@ namespace Notes
 
         private void TBxRut_TextChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void BtnCrearCuenta_Click(object sender, EventArgs e)

@@ -16,7 +16,11 @@ namespace PruebaConsola
         {
             try
             {
-                using (Stream stream = File.Open("cursos.bin", FileMode.Create))
+                string auxdirectorio = Directory.GetCurrentDirectory();
+                string directorio = auxdirectorio.Substring(0, auxdirectorio.Count() - 9);
+                string finalDirectorio = "\\Datos\\cursos.bin";
+                Console.WriteLine(directorio + finalDirectorio);
+                using (Stream stream = File.Open(directorio + finalDirectorio, FileMode.Create))
                 {
                     BinaryFormatter bin = new BinaryFormatter();
                     bin.Serialize(stream, cursos);
@@ -30,7 +34,10 @@ namespace PruebaConsola
         {
             try
             {
-                using (Stream stream = File.Open("apuntes.bin", FileMode.Create))
+                string auxdirectorio = Directory.GetCurrentDirectory();
+                string directorio = auxdirectorio.Substring(0, auxdirectorio.Count() - 9);
+                string finalDirectorio = "\\Datos\\apuntes.bin";
+                using (Stream stream = File.Open(directorio + finalDirectorio, FileMode.Create))
                 {
                     BinaryFormatter bin = new BinaryFormatter();
                     bin.Serialize(stream, apuntes);
@@ -44,7 +51,10 @@ namespace PruebaConsola
         {
             try
             {
-                using (Stream stream = File.Open("cuentas.bin", FileMode.Create))
+                string auxdirectorio = Directory.GetCurrentDirectory();
+                string directorio = auxdirectorio.Substring(0, auxdirectorio.Count() - 9);
+                string finalDirectorio = "\\Datos\\cuentas.bin";
+                using (Stream stream = File.Open(directorio + finalDirectorio, FileMode.Create))
                 {
                     BinaryFormatter bin = new BinaryFormatter();
                     bin.Serialize(stream, cuentas);

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Notes
+namespace PruebaConsola
 {
     public class Ingresar
     {
@@ -51,7 +51,7 @@ namespace Notes
                 }
             }
             //Si se ingreso solo con '-' (debio haber sido el '.' y '-' antes
-            else if (miRut.Trim().Split('-').Count() == 2 && (miRut.Split('.').Count() != 3))
+            else if (miRut.Trim().Split('-').Count() == 2 && (miRut.Split('.').Count()!=3))
             //Vemos que el resto sean numeros y solo haya uno despues de
             {
                 if ((int.TryParse(miRut.Trim().Split('-')[0], out int m)) &&
@@ -61,7 +61,7 @@ namespace Notes
                         (miRut.Trim().Split('-')[0].Trim().Count() > 6) &&
                          miRut.Trim().Split('-')[1].Trim().Count() == 1)
                     {
-                        return new int[] { int.Parse(miRut.Trim().Split('-')[0].Trim() +
+                        return new int[] { int.Parse(miRut.Trim().Split('-')[0].Trim() + 
                                                      miRut.Trim().Split('-')[1].Trim())};
                     }
                 }

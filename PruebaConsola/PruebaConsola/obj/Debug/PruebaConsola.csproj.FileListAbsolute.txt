@@ -1,0 +1,7 @@
+C:\Users\Pablo\Documents\Programacion\Pruebas\Proyecto\PruebaConsola\PruebaConsola\bin\Debug\PruebaConsola.exe.config
+C:\Users\Pablo\Documents\Programacion\Pruebas\Proyecto\PruebaConsola\PruebaConsola\bin\Debug\PruebaConsola.exe
+C:\Users\Pablo\Documents\Programacion\Pruebas\Proyecto\PruebaConsola\PruebaConsola\bin\Debug\PruebaConsola.pdb
+C:\Users\Pablo\Documents\Programacion\Pruebas\Proyecto\PruebaConsola\PruebaConsola\obj\Debug\PruebaConsola.csprojResolveAssemblyReference.cache
+C:\Users\Pablo\Documents\Programacion\Pruebas\Proyecto\PruebaConsola\PruebaConsola\obj\Debug\PruebaConsola.csproj.CoreCompileInputs.cache
+C:\Users\Pablo\Documents\Programacion\Pruebas\Proyecto\PruebaConsola\PruebaConsola\obj\Debug\PruebaConsola.exe
+C:\Users\Pablo\Documents\Programacion\Pruebas\Proyecto\PruebaConsola\PruebaConsola\obj\Debug\PruebaConsola.pdb

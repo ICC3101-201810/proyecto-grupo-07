@@ -11,12 +11,14 @@ namespace Notes
         /// <summary>
         /// Punto de entrada principal para la aplicación.
         /// </summary>
-        [STAThread]
+//        [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Inicio_Sesion());
+            //            Application.EnableVisualStyles();
+            //            Application.SetCompatibleTextRenderingDefault(false);
+            //            Application.Run(new Inicio_Sesion());
+            PruebaEnConsola prueba = new PruebaEnConsola();
+            prueba.Probar();
         }
     }
 }

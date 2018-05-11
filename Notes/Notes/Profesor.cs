@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Notes
 {
-    class Profesor : Cuenta
+    public class Profesor : Cuenta
     {
         public Profesor(int miRut, string miNombre, string miApellido, string miContrasena, 
                         string miEmail, string miCarrera) : base(miRut, miNombre, miApellido, miContrasena, 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Notes
 {
-    class Apunte
+    public class Apunte
     {
         private static int Contador_ID = 0; 
 
@@ -46,6 +46,26 @@ namespace Notes
             }
             return false;
         } //Publicar
+
+        public bool AgregarTopico(string miTopico)
+        { //Agregar topico
+            if (!Topicos.Contains(miTopico))
+            {
+                Topicos.Add(miTopico);
+                return true;
+            }
+            return false;
+        } //Agregar topico
+
+        public bool BorrarTopico(string miTopico)
+        { //Borrar topico
+            if (Topicos.Contains(miTopico))
+            {
+                Topicos.Remove(miTopico);
+                return true;
+            }
+            return false;
+        } //Borrar topico
 
         public string Info()
         { //Info

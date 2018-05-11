@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Notes
 {
-    class Buscar
+    public class Buscar
     {
         public Buscar() { }
         

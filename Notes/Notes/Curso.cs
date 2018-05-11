@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Notes
 {
-    class Curso
+    public class Curso
     {
         private static int Contador_ID = 0;
         //ID el sistema crea uno unico o se ingresa al crear el curso?

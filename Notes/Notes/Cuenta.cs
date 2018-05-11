@@ -34,5 +34,9 @@ namespace Notes
         public int getRut() { return Rut; }
         public string getNombre() { return Nombre; }
         public string getCarrera() { return Carrera; }
+
+        //public Apunte SubirApunte()
+
+
     }
 }

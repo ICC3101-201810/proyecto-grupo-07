@@ -53,6 +53,13 @@ namespace Notes
                     }
                 }
             }
+            else if (Parametro == "Todos")
+            {
+                foreach(Curso curso in ListaCursos)
+                {
+                    resultado.Add(curso);
+                }
+            }
             return resultado;
         } //Curso
 
@@ -109,6 +116,13 @@ namespace Notes
                     }
                 }
             }
+            else if (Parametro == "Todos")
+            {
+                foreach (Apunte apunte in ListaApuntes)
+                {
+                    resultado.Add(apunte);
+                }
+            }
             return resultado;
         } //Apunte
 
@@ -143,6 +157,13 @@ namespace Notes
                     {
                         resultado.Add(cuenta);
                     }
+                }
+            }
+            else if (Parametro == "Todos")
+            {
+                foreach (Cuenta cuenta in ListaCuentas)
+                {
+                    resultado.Add(cuenta);
                 }
             }
             return resultado;

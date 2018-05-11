@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Notes
 {
-    class Existe //Obsoleto, buscar entrega una lista vacia si no existe lo que se busca
+    class Existe //Obsoleto, Buscar entrega una lista vacia si no existe lo que se busca
     {
         public Existe() { }
 

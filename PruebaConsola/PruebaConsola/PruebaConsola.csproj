@@ -45,10 +45,12 @@
     <Compile Include="Admin.cs" />
     <Compile Include="Apunte.cs" />
     <Compile Include="Buscar.cs" />
+    <Compile Include="Cargar.cs" />
     <Compile Include="Cuenta.cs" />
     <Compile Include="Curso.cs" />
     <Compile Include="Estudiante.cs" />
     <Compile Include="Existe.cs" />
+    <Compile Include="Guardar.cs" />
     <Compile Include="Ingresar.cs" />
     <Compile Include="Profesor.cs" />
     <Compile Include="Program.cs" />

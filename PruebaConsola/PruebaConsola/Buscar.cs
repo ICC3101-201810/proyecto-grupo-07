@@ -12,8 +12,10 @@ namespace PruebaConsola
 
         public Buscar() { }
 
-        public List<Curso> Curso(string Parametro, string Valor, List<Curso> ListaCursos)
+        public List<Curso> Curso(string xParametro, string Valor, List<Curso> ListaCursos)
         { //Curso
+            string Parametro = xParametro.ToUpper();
+            Console.WriteLine(Parametro);
             List<Curso> resultado = new List<Curso>() { };
             if (Parametro == "ID" && int.TryParse(Valor, out auxParse))
             {
@@ -25,7 +27,7 @@ namespace PruebaConsola
                     }
                 }
             }
-            else if (Parametro == "Nombre")
+            else if (Parametro == "NOMBRE")
             {
                 foreach (Curso curso in ListaCursos)
                 {
@@ -35,7 +37,7 @@ namespace PruebaConsola
                     }
                 }
             }
-            else if (Parametro == "Carrera")
+            else if (Parametro == "CARRERA")
             {
                 foreach (Curso curso in ListaCursos)
                 {
@@ -45,7 +47,7 @@ namespace PruebaConsola
                     }
                 }
             }
-            else if (Parametro == "Facultad")
+            else if (Parametro == "FACULTAD")
             {
                 foreach (Curso curso in ListaCursos)
                 {
@@ -55,7 +57,7 @@ namespace PruebaConsola
                     }
                 }
             }
-            else if (Parametro == "Todos")
+            else if (Parametro == "TODOS")
             {
                 foreach (Curso curso in ListaCursos)
                 {
@@ -65,8 +67,9 @@ namespace PruebaConsola
             return resultado;
         } //Curso
 
-        public List<Apunte> Apunte(string Parametro, string Valor, List<Apunte> ListaApuntes)
+        public List<Apunte> Apunte(string xParametro, string Valor, List<Apunte> ListaApuntes)
         { //Apunte
+            string Parametro = xParametro.ToUpper();
             List<Apunte> resultado = new List<Apunte>() { };
             if (Parametro == "ID" && int.TryParse(Valor, out auxParse))
             {
@@ -78,7 +81,7 @@ namespace PruebaConsola
                     }
                 }
             }
-            else if (Parametro == "Autor" && int.TryParse(Valor, out auxParse))
+            else if (Parametro == "AUTOR" && int.TryParse(Valor, out auxParse))
             {
                 foreach (Apunte apunte in ListaApuntes)
                 {
@@ -88,7 +91,7 @@ namespace PruebaConsola
                     }
                 }
             }
-            else if (Parametro == "Curso" && int.TryParse(Valor, out auxParse))
+            else if (Parametro == "CURSO" && int.TryParse(Valor, out auxParse))
             {
                 foreach (Apunte apunte in ListaApuntes)
                 {
@@ -98,7 +101,7 @@ namespace PruebaConsola
                     }
                 }
             }
-            else if (Parametro == "Titulo")
+            else if (Parametro == "TITULO")
             {
                 foreach (Apunte apunte in ListaApuntes)
                 {
@@ -108,7 +111,7 @@ namespace PruebaConsola
                     }
                 }
             }
-            else if (Parametro == "Carrera")
+            else if (Parametro == "CARRERA")
             {
                 foreach (Apunte apunte in ListaApuntes)
                 {
@@ -118,7 +121,7 @@ namespace PruebaConsola
                     }
                 }
             }
-            else if (Parametro == "Todos")
+            else if (Parametro == "TODOS")
             {
                 foreach (Apunte apunte in ListaApuntes)
                 {
@@ -128,8 +131,9 @@ namespace PruebaConsola
             return resultado;
         } //Apunte
 
-        public List<Cuenta> Cuenta(string Parametro, string Valor, List<Cuenta> ListaCuentas)
+        public List<Cuenta> Cuenta(string xParametro, string Valor, List<Cuenta> ListaCuentas)
         { //Cuenta
+            string Parametro = xParametro.ToUpper();
             List<Cuenta> resultado = new List<Cuenta>() { };
             if (Parametro == "RUT" && int.TryParse(Valor, out int v))
             {
@@ -141,7 +145,7 @@ namespace PruebaConsola
                     }
                 }
             }
-            else if (Parametro == "Nombre")
+            else if (Parametro == "NOMBRE")
             {
                 foreach (Cuenta cuenta in ListaCuentas)
                 {
@@ -151,7 +155,7 @@ namespace PruebaConsola
                     }
                 }
             }
-            else if (Parametro == "Carrera")
+            else if (Parametro == "CARRERA")
             {
                 foreach (Cuenta cuenta in ListaCuentas)
                 {
@@ -161,7 +165,7 @@ namespace PruebaConsola
                     }
                 }
             }
-            else if (Parametro == "Todos")
+            else if (Parametro == "TODOS")
             {
                 foreach (Cuenta cuenta in ListaCuentas)
                 {

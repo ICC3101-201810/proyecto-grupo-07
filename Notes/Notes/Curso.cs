@@ -43,6 +43,7 @@ namespace Notes
             }
             return false;
         } //AgregarApunte
+
         public bool BorrarApunte(int miIDApunte)
         { //BorrarApunte
             if (Apuntes.Contains(miIDApunte))
@@ -52,22 +53,25 @@ namespace Notes
             }
             return false;
         } //BorrarApunte
+
         //public bool Valorar(int valor)
         //{                                 //Si volvemos la valoracion una lista
         //    valoraciones.Add(valor)
         //}
+
         public string Info()
         {
-            string datosSinApuntes = string.Format("\nNombre: \n" +
-                "Carrera: \n" +
-                "Facultad: \n" +
-                "Dificultad: \n");
+            string datosSinApuntes = string.Format("\nNombre  : \n" +
+                                                   "Carrera   : \n" +
+                                                   "Facultad  : \n" +
+                                                   "Dificultad: \n", NombreCurso, Carrera, Facultad, 
+                                                                     DificultadValorada);
             if (Apuntes.Count() > 0)
             {
-                Console.Write("ID Apuntes: ");
+                Console.Write("ID Apuntes:\n");
                 foreach (int apunte in Apuntes)
                 {    //Se agregar los apuntes
-                    datosSinApuntes += string.Format(" {0} \n", apunte);
+                    datosSinApuntes += string.Format("  {0} \n", apunte);
                 }
             }
             return datosSinApuntes;

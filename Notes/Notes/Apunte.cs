@@ -47,5 +47,15 @@ namespace Notes
             return false;
         } //Publicar
 
+        public string Info()
+        { //Info
+            string datosApunte = string.Format("\nID   :\n" +
+                                                   "Autor  :\n" +
+                                                   "Curso  :\n" +
+                                                   "Titulo :\n" +
+                                                   "Carrera:\n", ID, Autor, Curso, Titulo, Carrera);
+            //No se como mostrar el contenido
+            return datosApunte;
+        } //Info
     }
 }

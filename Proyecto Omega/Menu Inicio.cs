@@ -9,31 +9,30 @@ namespace Proyecto_Omega
     public class Menu_Inicio
     {
         public Sistema sistema = new Sistema();
-        string ID;
 
-        public Menu_Inicio()
+        public Menu_Inicio() // Lo primero es cargar los datos
         {
             sistema.CargarDatos();
         }
 
-        public void menuInicial()
+        public void MenuInicial()
         {
             Console.WriteLine("Bienvenido a tu plataforma de apuntes\n" +
                               "Recuerda ingresar '-1' como opcion para volver al menu anterior");
             while (true)
             {
-                sistema.cuentaLog = sistema.cuentaLog.BuscarCuenta(1, sistema.listaCuentas)[0];
+                sistema.adminSistema = sistema.adminSistema.BuscarCuenta(1, sistema.listaCuentas)[0];
                 Console.Write("\nSi eres miembro inicia sesion o crea una para comenzar a " +
                               "disfrutar del mejor material de estudio" +
-                              "\n1-Inicio Sesion" +
+                              "\n\n1-Inicio Sesion" +
                               "\n2-Crear Cuenta Nueva");
-                Console.Write("\nIngrese su opcion: "); string opcion = Console.ReadLine();
+                Console.Write("\n\nIngrese su opcion: "); string opcion = Console.ReadLine();
                 if (opcion == "1")
-                {
+                { //Iniciar Sesion Start
                     Console.Clear();
                     Console.Write("Ingrese su RUT: "); ID = Console.ReadLine();
                     Console.Write("Ingrese contraseña: "); string contrasena = Console.ReadLine();
-                    int Verificacion = sistema.verificarContrasena(ID, contrasena);
+                    int Verificacion = sistema.VerificarContrasena(ID, contrasena);
                     Console.WriteLine(Verificacion);
                     if (Verificacion==10)
                     {
@@ -53,7 +52,7 @@ namespace Proyecto_Omega
                     {
                         paginaInicialAdministrador();
                     }
-                }
+                } //Iniciar Sesion End
                 if (opcion == "2")
                 {
                     Console.WriteLine("Gracias por querer unirte a esta gran central de " +
@@ -71,7 +70,7 @@ namespace Proyecto_Omega
         public void paginaInicialEstudiante()
         {
             //Cambiamos el Usuario en el sistema
-            sistema.cuentaLog = sistema.cuentaLog.BuscarCuenta(Int32.Parse(ID),
+            sistema.adminSistema = sistema.adminSistema.BuscarCuenta(Int32.Parse(ID),
                                                                sistema.listaCuentas)[0];
             string opcion = "0";
             while (!opcion.Equals("-1"))
@@ -125,7 +124,7 @@ namespace Proyecto_Omega
         }
         public void paginaInicialProfesor()
         {
-            sistema.cuentaLog = sistema.cuentaLog.BuscarCuenta(Int32.Parse(ID),
+            sistema.adminSistema = sistema.adminSistema.BuscarCuenta(Int32.Parse(ID),
                                                                sistema.listaCuentas)[0];
             string opcion = "0";
             while (!opcion.Equals("-1"))
@@ -179,7 +178,7 @@ namespace Proyecto_Omega
         }
         public void paginaInicialAdministrador()
         {
-            sistema.cuentaLog = sistema.cuentaLog.BuscarCuenta(Int32.Parse(ID),
+            sistema.adminSistema = sistema.adminSistema.BuscarCuenta(Int32.Parse(ID),
                                                                sistema.listaCuentas)[0];
             string opcion = "0";
             while (!opcion.Equals("-1"))

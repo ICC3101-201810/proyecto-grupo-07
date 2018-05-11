@@ -7,21 +7,23 @@ using System.IO;
 
 namespace Proyecto_Omega
 {
-    public class Sistema
-    {
+    public class Sistema    
+    {   //La base de datos del proyecto
         public List<Cuenta> listaCuentas = new List<Cuenta>() { };
         public List<Apunte> listaApuntes = new List<Apunte>() { };
         public List<Curso> listaCursos = new List<Curso>(){ };
         public List<Reporte> listaReportes = new List<Reporte>() { };
-        public Cuenta cuentaLog = new Admin(-1, "Sistema", "", "Sistema", "", "", "");
-        int auxParse;
+        //La cuenta "adminSistema" esta encargada del menu inicial, cuando no hay cuenta logeada
+        public Cuenta adminSistema = new Admin(-1, "Sistema", "", "Sistema", "", "", "");
+        //La cuenta de la persona logeada
+        public Cuenta cuentaLog;
 
         public Sistema() { }
-
-        public int verificarContrasena(string miID, string miClaveAcceso)
+        //Recibe los datos al inicio de sesion
+        public Cuenta VerificarContrasena(string miID, string miClaveAcceso)
         {
             for (int i = 0; i < listaCuentas.Count; i++)
-            {
+            {   //Se va iterando por cada cuenta y se crea una referencia "revisionCuentas"
                 Cuenta revisionCuentas = listaCuentas[i];
                 if (revisionCuentas.ID == Int32.Parse(miID) && revisionCuentas.claveAcceso == miClaveAcceso)
                 {
@@ -33,7 +35,7 @@ namespace Proyecto_Omega
                     {
                         return 12;
                     }
-                    if (revisionCuentas is Admin)
+                    if (revisionCuentas is Cuenta)
                     {
                         return 11;
                     }
@@ -278,9 +280,9 @@ namespace Proyecto_Omega
                 string content = File.ReadAllText(file);
                 List<String> data = content.Split('\n').ToList();
                 List<String> auxTopico = data[3].Split(',').ToList();
-                Cuenta auxCuenta = cuentaLog.BuscarCuenta(Int32.Parse(data[0]), 
+                Cuenta auxCuenta = adminSistema.BuscarCuenta(Int32.Parse(data[0]), 
                                                           listaCuentas)[0];
-                Curso auxCurso = cuentaLog.BuscarCurso(Int32.Parse(data[2]), listaCursos)[0];
+                Curso auxCurso = adminSistema.BuscarCurso(Int32.Parse(data[2]), listaCursos)[0];
                 List<int> auxValor = data[6].Split(',').Select(int.Parse).ToList();
                 if (data[7].Equals("False"))
                 {
@@ -320,11 +322,11 @@ namespace Proyecto_Omega
             Console.Write("\nEscriba su apunte: ");
             string miInfo = Console.ReadLine();
 
-            List<Curso> miCurso = cuentaLog.BuscarCurso(miIDcurso, listaCursos);
+            List<Curso> miCurso = adminSistema.BuscarCurso(miIDcurso, listaCursos);
 
             if (miCurso.Count == 1)
             {
-                if (cuentaLog.SubirApunte(new object[] { miTitulo, miCurso[0], miTopicos,
+                if (adminSistema.SubirApunte(new object[] { miTitulo, miCurso[0], miTopicos,
                                           miCarrera, miInfo}, listaApuntes))
                 {
                     Console.WriteLine("Apunte subido con exito");
@@ -357,11 +359,11 @@ namespace Proyecto_Omega
                 }
             } while (!Int32.TryParse(auxID, out auxParse));
             int miID = Int32.Parse(auxID);
-            List<Apunte> miApunte = cuentaLog.BuscarApunte(new object[] { miID, "", "" },
+            List<Apunte> miApunte = adminSistema.BuscarApunte(new object[] { miID, "", "" },
                                                            listaApuntes);
             if (miApunte.Count == 1)
             {
-                miApunte[0].ImprimirInfo(cuentaLog);
+                miApunte[0].ImprimirInfo(adminSistema);
             }
             else
             {
@@ -374,7 +376,7 @@ namespace Proyecto_Omega
             int auxContador = 0;
             foreach (Apunte i in listaApuntes)
             {
-                i.ImprimirInfo(cuentaLog);
+                i.ImprimirInfo(adminSistema);
                 auxContador++;
             }
             if (auxContador == 0)
@@ -396,7 +398,7 @@ namespace Proyecto_Omega
                 }
             } while (!Int32.TryParse(auxID, out auxParse));
             int miID = Int32.Parse(auxID);
-            if (cuentaLog.BuscarApunte(new object[] { miID, "", "" }, listaApuntes).Count == 1)
+            if (adminSistema.BuscarApunte(new object[] { miID, "", "" }, listaApuntes).Count == 1)
             {
                 Console.Write("\nSi no quiere cambiar alguno de los datos solo presione enter");
                 Console.Write("\nIngrese el Titulo: ");
@@ -410,7 +412,7 @@ namespace Proyecto_Omega
                 Console.Write("\nIngrese el Contenido: ");
                 string miContenido = Console.ReadLine().Replace(" ", "");
 
-                if (cuentaLog.ActualizarApunte(miID, new object[] { miTitulo, miTopicosMas,
+                if (adminSistema.ActualizarApunte(miID, new object[] { miTitulo, miTopicosMas,
                                                miTopicosMenos, miCarrera, miContenido}, listaApuntes))
                 {
                     Console.WriteLine("\nApunte actualizado con exito\n");
@@ -454,7 +456,7 @@ namespace Proyecto_Omega
             }
             if (opcion2 == "1")
             {
-                if (cuentaLog.PublicarApunte(miID, true, listaApuntes))
+                if (adminSistema.PublicarApunte(miID, true, listaApuntes))
                 {
                     Console.WriteLine("Apunte publicado");
                 }
@@ -465,7 +467,7 @@ namespace Proyecto_Omega
             }
             else if (opcion2 == "2")
             {
-                if (cuentaLog.PublicarApunte(miID, false, listaApuntes))
+                if (adminSistema.PublicarApunte(miID, false, listaApuntes))
                 {
                     Console.WriteLine("Apunte despublicado");
                 }
@@ -498,7 +500,7 @@ namespace Proyecto_Omega
             Console.Write("Ingrese su Mail: ");string miEmail = Console.ReadLine();
             Console.Write("Ingrese su Carrera: ");string miCarrera = Console.ReadLine();
 
-            if (((Admin)cuentaLog).CrearCuenta(new object[] {miID, miNombre, miApellido,
+            if (((Admin)adminSistema).CrearCuenta(new object[] {miID, miNombre, miApellido,
                                            miNombreUsuario, miClaveAcceso, miEmail,
                                            miCarrera }, listaCuentas))
             {
@@ -517,7 +519,7 @@ namespace Proyecto_Omega
         {
             Console.Write("\nIngrese el RUT de la cuenta a eliminar");
             int miID = Int32.Parse(Console.ReadLine());
-            if(((Admin)cuentaLog).BorrarCuenta(miID, listaCuentas, listaApuntes))
+            if(((Admin)adminSistema).BorrarCuenta(miID, listaCuentas, listaApuntes))
             {
                 Console.WriteLine("La cuenta de {0} ha sido eliminada satisfactoriamente", miID);
             }
@@ -536,7 +538,7 @@ namespace Proyecto_Omega
             Console.Write("Ingrese los topicos separados por ',': ");
             List<string> miTopicos = Console.ReadLine().Replace(" ", "").Split(',').ToList();
 
-            if (((Admin)cuentaLog).CrearCurso(new object[] {miNombre, miFacultad, miCarrera,
+            if (((Admin)adminSistema).CrearCurso(new object[] {miNombre, miFacultad, miCarrera,
                                               miTopicos}, listaCursos))
             {
                 Console.WriteLine("Curso {0} creada con exito!", miNombre);

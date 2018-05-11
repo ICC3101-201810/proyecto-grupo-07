@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace PruebaConsola
 {
+    [Serializable()]
     public class Profesor : Cuenta
     {
         public Profesor(int miRut, string miNombre, string miApellido, string miContrasena,

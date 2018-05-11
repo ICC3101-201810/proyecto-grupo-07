@@ -10,6 +10,8 @@ namespace PruebaConsola
     {
         public Buscar Buscar = new Buscar();
         public Ingresar Ingresar = new Ingresar();
+        public Cargar Cargar = new Cargar();
+        public Guardar Guardar = new Guardar();
 
         //StreamWriter TxtCuentas { get; set; }
 

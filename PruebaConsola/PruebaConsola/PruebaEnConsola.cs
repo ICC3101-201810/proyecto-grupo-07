@@ -8,13 +8,21 @@ namespace PruebaConsola
 {
     public class PruebaEnConsola
     {
+        public Sistema Sistema = new Sistema();
+
         public List<Curso> Cursos = new List<Curso>() { };
         public List<Apunte> Apuntes = new List<Apunte>() { };
         public List<Cuenta> Cuentas = new List<Cuenta>() { };
 
-        public Sistema Sistema = new Sistema();
-
-        public PruebaEnConsola() { }
+        public PruebaEnConsola()
+        {
+            Cuentas.AddRange(Sistema.Cargar.Cuenta());
+            Cursos.AddRange(Sistema.Cargar.Curso());
+            Curso.Contador_ID = Cursos.Count();
+            Apuntes.AddRange(Sistema.Cargar.Apunte());
+            Apunte.Contador_ID = Apuntes.Count();
+            
+        }
 
         public void Probar()
         {
@@ -28,7 +36,8 @@ namespace PruebaConsola
                               "6-BorrarCurso\n" +
                               "7-CrearApunte\n" +
                               "8-BuscarApunte\n" +
-                              "9-BorrarApunte\n");
+                              "9-BorrarApunte\n" +
+                              "10-Guardar\n");
                 string opcion = Console.ReadLine();
                 switch (opcion)
                 {
@@ -58,6 +67,11 @@ namespace PruebaConsola
                         break;
                     case "9":
                         BorrarApunte();
+                        break;
+                    case "10":
+                        Sistema.Guardar.Curso(Cursos);
+                        Sistema.Guardar.Cuenta(Cuentas);
+                        Sistema.Guardar.Apunte(Apuntes);
                         break;
 
                 }
@@ -248,7 +262,7 @@ namespace PruebaConsola
             //Se consigue una lista con los parametros pedidos
             foreach(Apunte apunte in Sistema.Buscar.Apunte(auxParametro[0], auxValor[0], Apuntes))
             {
-                apunte.Info();
+                Console.Write(apunte.Info());
             }
 
         }
@@ -314,9 +328,11 @@ namespace PruebaConsola
                 auxValor = Sistema.Ingresar.String(Console.ReadLine());
             } while (auxValor.Count() == 0);
             //Se consigue una lista con los parametros pedidos
+            Console.WriteLine("{0} - {1}", auxParametro[0], auxValor[0]);
+            Console.WriteLine(Cursos.Count());
             foreach (Curso curso in Sistema.Buscar.Curso(auxParametro[0], auxValor[0], Cursos))
             {
-                curso.Info();
+                Console.Write(curso.Info());
             }
         }
 

@@ -60,7 +60,7 @@ namespace Notes
         //}
 
         public string Info()
-        {
+        { //Info
             string datosSinApuntes = string.Format("\nNombre  : \n" +
                                                    "Carrera   : \n" +
                                                    "Facultad  : \n" +
@@ -75,6 +75,6 @@ namespace Notes
                 }
             }
             return datosSinApuntes;
-        }
+        } //Info
     }
 }

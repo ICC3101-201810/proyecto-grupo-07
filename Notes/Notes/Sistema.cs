@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Security.Cryptography;
 
 namespace Notes
 {
@@ -16,10 +17,21 @@ namespace Notes
             Cuenta NuevaCuenta = new Cuenta(Rut,Nombre,Apellido,Contrasena,Email,Carrera);
 
             TxtCuentas = File.CreateText("Cuentas.txt");
+
+            string ContrasenaCifrada = CifrarContrasena(Contrasena);
             
-            TxtCuentas.Write(Rut.ToString(), Nombre);
+            TxtCuentas.WriteLine(Rut.ToString()+"#*"+Nombre+"#*"+Apellido+"#*"+ContrasenaCifrada+"#*"+Email+"#*"+Carrera);
             TxtCuentas.Close();
             return true;
+        }
+        public string CifrarContrasena(string Contrasena)
+        {
+            SHA1 Encriptado = new SHA1CryptoServiceProvider();
+
+            byte[] Bytes = (new UnicodeEncoding()).GetBytes(Contrasena);
+            byte[] EncriptadoContrasena = Encriptado.ComputeHash(Bytes);
+
+            return Convert.ToBase64String(EncriptadoContrasena);            
         }
     }
 }

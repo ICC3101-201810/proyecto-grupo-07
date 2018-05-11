@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Notes
+namespace PruebaConsola
 {
     class Existe //Obsoleto, Buscar entrega una lista vacia si no existe lo que se busca
     {

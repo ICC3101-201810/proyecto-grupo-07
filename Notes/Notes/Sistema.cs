@@ -8,8 +8,11 @@ using System.Security.Cryptography;
 
 namespace Notes
 {
-    class Sistema
+    public class Sistema
     {
+        public Buscar Buscar = new Buscar();
+        public Ingresar Ingresar = new Ingresar();
+
         StreamWriter TxtCuentas { get; set; }
 
         public bool VerificarCuenta(int Rut, string Nombre, string Apellido,string Contrasena, string Email, string Carrera)

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Notes
 {
+    [Serializable()]
     public class Cuenta
     {
         private int Rut { get; set; } //Remplacemos la K con 0, es muuucho mas simple

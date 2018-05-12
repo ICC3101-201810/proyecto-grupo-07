@@ -10,20 +10,49 @@ namespace Notes
 {
     class Sistema
     {
-        StreamWriter TxtCuentas { get; set; }
+        public static File TxtCuentas; 
+        
 
-        public bool VerificarCuenta(int Rut, string Nombre, string Apellido,string Contrasena, string Email, string Carrera)
+        public bool CrearCuenta(int Rut, string Nombre, string Apellido, string Contrasena, string Email, string Carrera)
         {
-            Cuenta NuevaCuenta = new Cuenta(Rut,Nombre,Apellido,Contrasena,Email,Carrera);
-
-            TxtCuentas = File.CreateText("Cuentas.txt");
-
+            TxtCuentas = new FileStream("Cuentas.txt", FileMode.Create , FileAccess.Write);
+            Cuenta NuevaCuenta = new Cuenta(Rut, Nombre, Apellido, Contrasena, Email, Carrera);
             string ContrasenaCifrada = CifrarContrasena(Contrasena);
-            
-            TxtCuentas.WriteLine(Rut.ToString()+"#*"+Nombre+"#*"+Apellido+"#*"+ContrasenaCifrada+"#*"+Email+"#*"+Carrera);
-            TxtCuentas.Close();
+
+            byte[] Cuenta = Encoding.ASCII.GetBytes(Rut + "#*" + Nombre + "#*" + Apellido + "#*" + Contrasena + "#*" + Email + "#*" + Carrera);
+            TxtCuentas.Write(Cuenta,0,Cuenta.Length);
+
             return true;
         }
+
+        public bool VerificarCuenta(int Rut)
+        {
+
+
+
+            /*using (StreamReader LeerCuentas = new StreamReader("Cuentas.txt"))
+            {
+                while (!LeerCuentas.EndOfStream)
+                {
+                    string Linea = LeerCuentas.ReadLine();
+                    string Separador = "#*";
+                    char Sep = Convert.ToChar(Separador);
+                    string[] Atributos = Linea.Split(Sep);
+
+                    foreach (string Atributo in Atributos)
+                    {
+                        if (Atributo == Rut.ToString())
+                        {
+                            return false;
+                        }                       
+                    }
+                    
+                }
+                
+            }*/
+            return true;
+        }
+
         public string CifrarContrasena(string Contrasena)
         {
             SHA1 Encriptado = new SHA1CryptoServiceProvider();

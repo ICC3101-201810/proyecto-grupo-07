@@ -33,12 +33,13 @@ namespace Notes
         {
             Sistema CrearCuentaSistema = new Sistema();
             int Rut = Int32.Parse(TBxRut.Text);
-            bool Verificacion = CrearCuentaSistema.VerificarCuenta(Rut, TBxNombre.Text, TBxApellido.Text, TbxEmail.Text, TBxContrasena.Text, TBxCarrera.Text);
+            bool Verificacion = CrearCuentaSistema.VerificarCuenta(Rut);
             if (Verificacion==true)
             {
+                CrearCuentaSistema.CrearCuenta(Rut, TBxNombre.Text, TBxApellido.Text, TBxContrasena.Text, TbxEmail.Text, TBxCarrera.Text);
                 MessageBox.Show("Cuenta creada exitosamente");
             }
-            else
+            if (Verificacion==false)
             {
                 MessageBox.Show("No se pudo crear su cuenta");
             }

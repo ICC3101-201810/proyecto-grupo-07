@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.TBxRut = new System.Windows.Forms.TextBox();
-            this.TBxNombre = new System.Windows.Forms.TextBox();
+            this.TBxContrasena = new System.Windows.Forms.TextBox();
             this.BtnIniciarSesion = new System.Windows.Forms.Button();
             this.BtnCrearCuenta = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -41,15 +41,16 @@
             this.TBxRut.Size = new System.Drawing.Size(100, 20);
             this.TBxRut.TabIndex = 0;
             this.TBxRut.Text = "Rut";
+            this.TBxRut.TextChanged += new System.EventHandler(this.TBxRut_TextChanged);
             // 
-            // TBxNombre
+            // TBxContrasena
             // 
-            this.TBxNombre.Location = new System.Drawing.Point(82, 101);
-            this.TBxNombre.Name = "TBxNombre";
-            this.TBxNombre.PasswordChar = '*';
-            this.TBxNombre.Size = new System.Drawing.Size(100, 20);
-            this.TBxNombre.TabIndex = 1;
-            this.TBxNombre.Text = "Contraseña";
+            this.TBxContrasena.Location = new System.Drawing.Point(82, 101);
+            this.TBxContrasena.Name = "TBxContrasena";
+            this.TBxContrasena.PasswordChar = '*';
+            this.TBxContrasena.Size = new System.Drawing.Size(100, 20);
+            this.TBxContrasena.TabIndex = 1;
+            this.TBxContrasena.Text = "Contraseña";
             // 
             // BtnIniciarSesion
             // 
@@ -59,6 +60,7 @@
             this.BtnIniciarSesion.TabIndex = 2;
             this.BtnIniciarSesion.Text = "Iniciar Sesion";
             this.BtnIniciarSesion.UseVisualStyleBackColor = true;
+            this.BtnIniciarSesion.Click += new System.EventHandler(this.BtnIniciarSesion_Click);
             // 
             // BtnCrearCuenta
             // 
@@ -77,7 +79,7 @@
             this.ClientSize = new System.Drawing.Size(284, 261);
             this.Controls.Add(this.BtnCrearCuenta);
             this.Controls.Add(this.BtnIniciarSesion);
-            this.Controls.Add(this.TBxNombre);
+            this.Controls.Add(this.TBxContrasena);
             this.Controls.Add(this.TBxRut);
             this.Name = "Inicio_Sesion";
             this.Text = "Inicio Sesion";
@@ -89,7 +91,7 @@
         #endregion
 
         private System.Windows.Forms.TextBox TBxRut;
-        private System.Windows.Forms.TextBox TBxNombre;
+        private System.Windows.Forms.TextBox TBxContrasena;
         private System.Windows.Forms.Button BtnIniciarSesion;
         private System.Windows.Forms.Button BtnCrearCuenta;
     }

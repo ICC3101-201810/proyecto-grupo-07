@@ -57,7 +57,6 @@
     </Compile>
     <Compile Include="Cuenta.cs" />
     <Compile Include="Curso.cs" />
-    <Compile Include="Datos.cs" />
     <Compile Include="Estudiante.cs" />
     <Compile Include="Existe.cs" />
     <Compile Include="Guardar.cs" />
@@ -67,6 +66,12 @@
     </Compile>
     <Compile Include="Inicio Sesion.Designer.cs">
       <DependentUpon>Inicio Sesion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu Inicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu Inicio.Designer.cs">
+      <DependentUpon>Menu Inicio.cs</DependentUpon>
     </Compile>
     <Compile Include="Profesor.cs" />
     <Compile Include="Program.cs" />

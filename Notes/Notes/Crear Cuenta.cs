@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Notes
 {
@@ -31,17 +32,27 @@ namespace Notes
 
         private void BtnCrearCuenta_Click(object sender, EventArgs e)
         {
-            Sistema CrearCuentaSistema = new Sistema();
-            int Rut = Int32.Parse(TBxRut.Text);
-            bool Verificacion = CrearCuentaSistema.VerificarCuenta(Rut);
-            if (Verificacion==true)
+            string Rut = TBxRut.Text;
+            string Nombre = TBxNombre.Text;
+            string Apellido = TBxApellido.Text;
+            string Email = TBxEmail.Text;
+            string Contrasena = TBxContrasena.Text;
+            string Carrera = TBxCarrera.Text;
+
+            string Url = Rut + ".txt";
+
+            if (File.Exists(Url))
             {
-                CrearCuentaSistema.CrearCuenta(Rut, TBxNombre.Text, TBxApellido.Text, TBxContrasena.Text, TbxEmail.Text, TBxCarrera.Text);
-                MessageBox.Show("Cuenta creada exitosamente");
+                MessageBox.Show("Este usuario ya se encuentra registrado");
             }
-            if (Verificacion==false)
+
+            else
             {
-                MessageBox.Show("No se pudo crear su cuenta");
+                Sistema CifrarContrasena = new Sistema();
+                string ContrasenaCifrada = CifrarContrasena.CifrarContrasena(Contrasena);
+                File.WriteAllText(Url,Rut+"_"+Nombre+"_"+Apellido+"_"+Email+"_"+ContrasenaCifrada+"_"+Carrera);
+
+                MessageBox.Show("Su Usuario se Registro Correctamente");
             }
         }
     }

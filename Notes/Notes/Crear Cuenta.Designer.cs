@@ -32,7 +32,7 @@
             this.TBxRut = new System.Windows.Forms.TextBox();
             this.TBxNombre = new System.Windows.Forms.TextBox();
             this.TBxApellido = new System.Windows.Forms.TextBox();
-            this.TbxEmail = new System.Windows.Forms.TextBox();
+            this.TBxEmail = new System.Windows.Forms.TextBox();
             this.TBxContrasena = new System.Windows.Forms.TextBox();
             this.TBxCarrera = new System.Windows.Forms.TextBox();
             this.BtnRegIniciarSesion = new System.Windows.Forms.Button();
@@ -73,13 +73,13 @@
             this.TBxApellido.TabIndex = 3;
             this.TBxApellido.Text = "Apellido";
             // 
-            // TbxEmail
+            // TBxEmail
             // 
-            this.TbxEmail.Location = new System.Drawing.Point(139, 157);
-            this.TbxEmail.Name = "TbxEmail";
-            this.TbxEmail.Size = new System.Drawing.Size(100, 20);
-            this.TbxEmail.TabIndex = 4;
-            this.TbxEmail.Text = "Email";
+            this.TBxEmail.Location = new System.Drawing.Point(139, 157);
+            this.TBxEmail.Name = "TBxEmail";
+            this.TBxEmail.Size = new System.Drawing.Size(100, 20);
+            this.TBxEmail.TabIndex = 4;
+            this.TBxEmail.Text = "Email";
             // 
             // TBxContrasena
             // 
@@ -115,7 +115,7 @@
             this.Controls.Add(this.BtnRegIniciarSesion);
             this.Controls.Add(this.TBxCarrera);
             this.Controls.Add(this.TBxContrasena);
-            this.Controls.Add(this.TbxEmail);
+            this.Controls.Add(this.TBxEmail);
             this.Controls.Add(this.TBxApellido);
             this.Controls.Add(this.TBxNombre);
             this.Controls.Add(this.TBxRut);
@@ -133,7 +133,7 @@
         private System.Windows.Forms.TextBox TBxRut;
         private System.Windows.Forms.TextBox TBxNombre;
         private System.Windows.Forms.TextBox TBxApellido;
-        private System.Windows.Forms.TextBox TbxEmail;
+        private System.Windows.Forms.TextBox TBxEmail;
         private System.Windows.Forms.TextBox TBxContrasena;
         private System.Windows.Forms.TextBox TBxCarrera;
         private System.Windows.Forms.Button BtnRegIniciarSesion;

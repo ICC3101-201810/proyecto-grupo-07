@@ -10,35 +10,33 @@ namespace Notes
 {
     public class Sistema
     {
-<<<<<<< HEAD
-        public static File TxtCuentas; 
+//<<<<<<< HEAD
         
-=======
+//=======
         public Buscar Buscar = new Buscar();
         public Ingresar Ingresar = new Ingresar();
         public Cargar Cargar = new Cargar();
         public Guardar Guardar = new Guardar();
 
         StreamWriter TxtCuentas { get; set; }
->>>>>>> 2e8662919fa0a00f8f10cf2cf75ee88cc5c1da63
+        //>>>>>>> 2e8662919fa0a00f8f10cf2cf75ee88cc5c1da63
 
-        public bool CrearCuenta(int Rut, string Nombre, string Apellido, string Contrasena, string Email, string Carrera)
+        public bool VerificarContrasena(string Rut, string Contrasena)
         {
-            TxtCuentas = new FileStream("Cuentas.txt", FileMode.Create , FileAccess.Write);
-            Cuenta NuevaCuenta = new Cuenta(Rut, Nombre, Apellido, Contrasena, Email, Carrera);
-            string ContrasenaCifrada = CifrarContrasena(Contrasena);
+            string[] LineasTexto = File.ReadAllLines(Rut + ".txt");
 
-            byte[] Cuenta = Encoding.ASCII.GetBytes(Rut + "#*" + Nombre + "#*" + Apellido + "#*" + Contrasena + "#*" + Email + "#*" + Carrera);
-            TxtCuentas.Write(Cuenta,0,Cuenta.Length);
+            string Separador = "_";
+            char Sep = Convert.ToChar(Separador);
+            string[] Atributos = LineasTexto[0].Split(Sep);
 
-            return true;
-        }
+            string CCifrada = CifrarContrasena(Contrasena);
 
-        public bool VerificarCuenta(int Rut)
-        {
+            if (CCifrada==Atributos[4])
+            {
+                return true;
+            }
 
-
-
+            return false;
             /*using (StreamReader LeerCuentas = new StreamReader("Cuentas.txt"))
             {
                 while (!LeerCuentas.EndOfStream)
@@ -59,7 +57,6 @@ namespace Notes
                 }
                 
             }*/
-            return true;
         }
 
         public string CifrarContrasena(string Contrasena)

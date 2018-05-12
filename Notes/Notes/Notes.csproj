@@ -57,6 +57,7 @@
     </Compile>
     <Compile Include="Cuenta.cs" />
     <Compile Include="Curso.cs" />
+    <Compile Include="Datos.cs" />
     <Compile Include="Estudiante.cs" />
     <Compile Include="Existe.cs" />
     <Compile Include="Guardar.cs" />

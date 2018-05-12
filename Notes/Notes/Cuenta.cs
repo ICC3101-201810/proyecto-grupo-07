@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Notes
 {
-    class Cuenta
+    [Serializable()]
+    public class Cuenta
     {
-        private int Rut { get; set; } 
+        private int Rut { get; set; } //Remplacemos la K con 0, es muuucho mas simple
         private string Nombre { get; set; }
         private string Apellido { get; set; }
         private string Contrasena { get; set; }
@@ -35,8 +36,17 @@ namespace Notes
         public string getNombre() { return Nombre; }
         public string getCarrera() { return Carrera; }
 
+        public string Info()
+        {
+            return string.Format("\nRut     : {0}\n" +
+                                   "Nombre  : {1}\n" +
+                                   "Apellido: {2}\n" +
+                                   "Email   : {3}\n" +
+                                   "Carrera : {4}\n", Rut, Nombre, Apellido, Email, Carrera);
+        }
+
         //public Apunte SubirApunte()
 
-
+        //public
     }
 }

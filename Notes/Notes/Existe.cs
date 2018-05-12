@@ -12,7 +12,7 @@ namespace Notes
 
         public bool Curso(int IDCurso, List<Curso> ListaCursos)
         {
-            if(ListaCursos.Any(x => x.getID() == IDCurso))
+            if (ListaCursos.Any(x => x.getID() == IDCurso))
             {
                 return true;
             }

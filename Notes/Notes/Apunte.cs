@@ -6,14 +6,15 @@ using System.Threading.Tasks;
 
 namespace Notes
 {
-    class Apunte
+    [Serializable()]
+    public class Apunte
     {
-        private static int Contador_ID = 0; 
+        public static int Contador_ID = 0;
 
-        private int ID { get; set;  } // ID, el sistema crea uno unico o se ingresa al crear el apunte?
+        private int ID { get; set; } // ID, el sistema crea uno unico o se ingresa al crear el apunte?
         private int Autor { get; set; } //El ID del autor
         private int Curso { get; set; } //ID de los cursos
-        private string Titulo { get; set; }        
+        private string Titulo { get; set; }
         private string Carrera { get; set; }
         private List<string> Topicos { get; set; }
         private int Valoracion { get; set; } //Vamos a dejar una lista de valoraciones? Si no, no se como calcular el valor cada vez que la valoran, puede ser un diccionario con el rut que la valoro y el valor
@@ -46,6 +47,26 @@ namespace Notes
             }
             return false;
         } //Publicar
+
+        public bool AgregarTopico(string miTopico)
+        { //Agregar topico
+            if (!Topicos.Contains(miTopico))
+            {
+                Topicos.Add(miTopico);
+                return true;
+            }
+            return false;
+        } //Agregar topico
+
+        public bool BorrarTopico(string miTopico)
+        { //Borrar topico
+            if (Topicos.Contains(miTopico))
+            {
+                Topicos.Remove(miTopico);
+                return true;
+            }
+            return false;
+        } //Borrar topico
 
         public string Info()
         { //Info

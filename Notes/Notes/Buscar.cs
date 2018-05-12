@@ -6,56 +6,60 @@ using System.Threading.Tasks;
 
 namespace Notes
 {
-    class Buscar
+    public class Buscar
     {
+        int auxParse;
+
         public Buscar() { }
-        
-        public List<Curso> Curso(string Parametro, object Valor, List<Curso> ListaCursos)
+
+        public List<Curso> Curso(string xParametro, string Valor, List<Curso> ListaCursos)
         { //Curso
+            string Parametro = xParametro.ToUpper();
+            Console.WriteLine(Parametro);
             List<Curso> resultado = new List<Curso>() { };
-            if(Parametro=="ID" && (Valor is int))
+            if (Parametro == "ID" && int.TryParse(Valor, out auxParse))
             {
                 foreach (Curso curso in ListaCursos)
                 {
-                    if (curso.getID() == (int)Valor)
+                    if (curso.getID() == int.Parse(Valor))
                     {
                         resultado.Add(curso);
                     }
                 }
             }
-            else if(Parametro=="Nombre" && (Valor is string))
+            else if (Parametro == "NOMBRE")
             {
                 foreach (Curso curso in ListaCursos)
                 {
-                    if (curso.getNombre() == (string)Valor)
+                    if (curso.getNombre() == Valor)
                     {
                         resultado.Add(curso);
                     }
                 }
             }
-            else if(Parametro=="Carrera" && (Valor is string))
+            else if (Parametro == "CARRERA")
             {
                 foreach (Curso curso in ListaCursos)
                 {
-                    if (curso.getCarrera() == (string)Valor)
+                    if (curso.getCarrera() == Valor)
                     {
                         resultado.Add(curso);
                     }
                 }
             }
-            else if(Parametro=="Facultad" && (Valor is string))
-            { 
+            else if (Parametro == "FACULTAD")
+            {
                 foreach (Curso curso in ListaCursos)
                 {
-                    if (curso.getFacultad() == (string)Valor)
+                    if (curso.getFacultad() == Valor)
                     {
                         resultado.Add(curso);
                     }
                 }
             }
-            else if (Parametro == "Todos")
+            else if (Parametro == "TODOS")
             {
-                foreach(Curso curso in ListaCursos)
+                foreach (Curso curso in ListaCursos)
                 {
                     resultado.Add(curso);
                 }
@@ -63,60 +67,61 @@ namespace Notes
             return resultado;
         } //Curso
 
-        public List<Apunte> Apunte(string Parametro ,object Valor, List<Apunte> ListaApuntes)
+        public List<Apunte> Apunte(string xParametro, string Valor, List<Apunte> ListaApuntes)
         { //Apunte
+            string Parametro = xParametro.ToUpper();
             List<Apunte> resultado = new List<Apunte>() { };
-            if (Parametro == "ID" && (Valor is int))
+            if (Parametro == "ID" && int.TryParse(Valor, out auxParse))
             {
                 foreach (Apunte apunte in ListaApuntes)
                 {
-                    if (apunte.getID() == (int)Valor)
+                    if (apunte.getID() == int.Parse(Valor))
                     {
                         resultado.Add(apunte);
                     }
                 }
             }
-            else if (Parametro == "Autor" && (Valor is int))
+            else if (Parametro == "AUTOR" && int.TryParse(Valor, out auxParse))
             {
                 foreach (Apunte apunte in ListaApuntes)
                 {
-                    if (apunte.getAutor() == (int)Valor)
+                    if (apunte.getAutor() == int.Parse(Valor))
                     {
                         resultado.Add(apunte);
                     }
                 }
             }
-            else if (Parametro == "Curso" && (Valor is int))
+            else if (Parametro == "CURSO" && int.TryParse(Valor, out auxParse))
             {
                 foreach (Apunte apunte in ListaApuntes)
                 {
-                    if (apunte.getCarrera() == (string)Valor)
+                    if (apunte.getCurso() == int.Parse(Valor))
                     {
                         resultado.Add(apunte);
                     }
                 }
             }
-            else if (Parametro == "Titulo" && (Valor is string))
+            else if (Parametro == "TITULO")
             {
                 foreach (Apunte apunte in ListaApuntes)
                 {
-                    if (apunte.getTitulo() == (string)Valor)
+                    if (apunte.getTitulo() == Valor)
                     {
                         resultado.Add(apunte);
                     }
                 }
             }
-            else if (Parametro == "Carrera" && (Valor is string))
+            else if (Parametro == "CARRERA")
             {
                 foreach (Apunte apunte in ListaApuntes)
                 {
-                    if (apunte.getCarrera() == (string)Valor)
+                    if (apunte.getCarrera() == Valor)
                     {
                         resultado.Add(apunte);
                     }
                 }
             }
-            else if (Parametro == "Todos")
+            else if (Parametro == "TODOS")
             {
                 foreach (Apunte apunte in ListaApuntes)
                 {
@@ -126,40 +131,41 @@ namespace Notes
             return resultado;
         } //Apunte
 
-        public List<Cuenta> Cuenta(string Parametro, object Valor, List<Cuenta> ListaCuentas)
+        public List<Cuenta> Cuenta(string xParametro, string Valor, List<Cuenta> ListaCuentas)
         { //Cuenta
+            string Parametro = xParametro.ToUpper();
             List<Cuenta> resultado = new List<Cuenta>() { };
-            if (Parametro == "Rut" && (Valor is int))
+            if (Parametro == "RUT" && int.TryParse(Valor, out int v))
             {
                 foreach (Cuenta cuenta in ListaCuentas)
                 {
-                    if (cuenta.getRut() == (int)Valor)
+                    if (cuenta.getRut() == int.Parse(Valor))
                     {
                         resultado.Add(cuenta);
                     }
                 }
             }
-            else if (Parametro == "Nombre" && (Valor is string))
+            else if (Parametro == "NOMBRE")
             {
                 foreach (Cuenta cuenta in ListaCuentas)
                 {
-                    if (cuenta.getNombre() == (string)Valor)
+                    if (cuenta.getNombre() == Valor)
                     {
                         resultado.Add(cuenta);
                     }
                 }
             }
-            else if (Parametro == "Carrera" && (Valor is string))
+            else if (Parametro == "CARRERA")
             {
                 foreach (Cuenta cuenta in ListaCuentas)
                 {
-                    if (cuenta.getCarrera() == (string)Valor)
+                    if (cuenta.getCarrera() == Valor)
                     {
                         resultado.Add(cuenta);
                     }
                 }
             }
-            else if (Parametro == "Todos")
+            else if (Parametro == "TODOS")
             {
                 foreach (Cuenta cuenta in ListaCuentas)
                 {

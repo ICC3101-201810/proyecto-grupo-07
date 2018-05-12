@@ -48,6 +48,7 @@
     <Compile Include="Admin.cs" />
     <Compile Include="Apunte.cs" />
     <Compile Include="Buscar.cs" />
+    <Compile Include="Cargar.cs" />
     <Compile Include="Crear Cuenta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,6 +59,8 @@
     <Compile Include="Curso.cs" />
     <Compile Include="Estudiante.cs" />
     <Compile Include="Existe.cs" />
+    <Compile Include="Guardar.cs" />
+    <Compile Include="Ingresar.cs" />
     <Compile Include="Inicio Sesion.cs">
       <SubType>Form</SubType>
     </Compile>

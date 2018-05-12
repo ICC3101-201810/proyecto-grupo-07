@@ -6,25 +6,23 @@ using System.Threading.Tasks;
 
 namespace Notes
 {
-    class Curso
+    [Serializable()]
+    public class Curso
     {
-        private static int Contador_ID = 0;
+        public static int Contador_ID = 0;
         //ID el sistema crea uno unico o se ingresa al crear el curso?
         private int ID { get; set; }
         private string NombreCurso { get; set; }
         private string Carrera { get; set; }
         private string Facultad { get; set; }
         private int DificultadValorada { get; set; } //Vamos a dejar una lista de valoraciones? Si no, no se como calcular el valor cada vez que la valoran, puede ser un diccionario con el rut que la valoro y el valor
-        private List<int> Apuntes { get; set; } // Referencia al ID de los apuntes?
+        private List<int> Apuntes { get; set; } = new List<int>() { };
 
-        public Curso(string miNombreCurso, string miCarrera, string miFacultad, int miDificultadValorada,
-                     List<int> miApuntes)
+        public Curso(string miNombreCurso, string miCarrera, string miFacultad)
         { //Constructor
             NombreCurso = miNombreCurso;
             Carrera = miCarrera;
             Facultad = miFacultad;
-            DificultadValorada = miDificultadValorada;
-            Apuntes = miApuntes;
             ID = Contador_ID;
             Contador_ID++;
         } //Constructor
@@ -34,11 +32,11 @@ namespace Notes
         public string getCarrera() { return Carrera; }
         public string getFacultad() { return Facultad; }
 
-        public bool AgregarApunte(int miIDApunte) 
+        public bool AgregarApunte(int miIDApunte)
         { //AgregarApunte
-            if (!Apuntes.Contains(miIDApunte)) 
+            if (!Apuntes.Contains(miIDApunte))
             {
-                Apuntes.Add(miIDApunte); 
+                Apuntes.Add(miIDApunte);
                 return true;
             }
             return false;
@@ -60,12 +58,13 @@ namespace Notes
         //}
 
         public string Info()
-        {
-            string datosSinApuntes = string.Format("\nNombre  : \n" +
-                                                   "Carrera   : \n" +
-                                                   "Facultad  : \n" +
-                                                   "Dificultad: \n", NombreCurso, Carrera, Facultad, 
-                                                                     DificultadValorada);
+        { //Info
+            string datosSinApuntes = string.Format("\nID        : {4}\n" +
+                                                   "Nombre    : {0}\n" +
+                                                   "Carrera   : {1}\n" +
+                                                   "Facultad  : {2}\n" +
+                                                   "Dificultad: {3}\n", NombreCurso, Carrera, Facultad,
+                                                                     DificultadValorada, ID);
             if (Apuntes.Count() > 0)
             {
                 Console.Write("ID Apuntes:\n");
@@ -75,6 +74,6 @@ namespace Notes
                 }
             }
             return datosSinApuntes;
-        }
+        } //Info
     }
 }

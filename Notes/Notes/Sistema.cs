@@ -8,10 +8,19 @@ using System.Security.Cryptography;
 
 namespace Notes
 {
-    class Sistema
+    public class Sistema
     {
+<<<<<<< HEAD
         public static File TxtCuentas; 
         
+=======
+        public Buscar Buscar = new Buscar();
+        public Ingresar Ingresar = new Ingresar();
+        public Cargar Cargar = new Cargar();
+        public Guardar Guardar = new Guardar();
+
+        StreamWriter TxtCuentas { get; set; }
+>>>>>>> 2e8662919fa0a00f8f10cf2cf75ee88cc5c1da63
 
         public bool CrearCuenta(int Rut, string Nombre, string Apellido, string Contrasena, string Email, string Carrera)
         {

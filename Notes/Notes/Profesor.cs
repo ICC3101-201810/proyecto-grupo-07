@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace Notes
 {
-    class Profesor : Cuenta
+    [Serializable()]
+    public class Profesor : Cuenta
     {
-        public Profesor(int miRut, string miNombre, string miApellido, string miContrasena, 
-                        string miEmail, string miCarrera) : base(miRut, miNombre, miApellido, miContrasena, 
-                        miEmail, miCarrera) {  }
+        public Profesor(int miRut, string miNombre, string miApellido, string miContrasena,
+                        string miEmail, string miCarrera) : base(miRut, miNombre, miApellido, miContrasena,
+                        miEmail, miCarrera)
+        { }
 
     }
 }

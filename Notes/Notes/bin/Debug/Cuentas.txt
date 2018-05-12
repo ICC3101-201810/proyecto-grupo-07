@@ -1,0 +1,4 @@
+<<<<<<< HEAD
+=======
+12#*Nombre#*Apellido#*c1x0Am15sBzvPrkZ/0C6acQisb4=#*Contrasena#*Carrera
+>>>>>>> 2e8662919fa0a00f8f10cf2cf75ee88cc5c1da63

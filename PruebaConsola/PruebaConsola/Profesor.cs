@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Notes
+namespace PruebaConsola
 {
     [Serializable()]
-    class Estudiante : Cuenta
+    public class Profesor : Cuenta
     {
-        public Estudiante(int miRut, string miNombre, string miApellido, string miContrasena,
+        public Profesor(int miRut, string miNombre, string miApellido, string miContrasena,
                         string miEmail, string miCarrera) : base(miRut, miNombre, miApellido, miContrasena,
                         miEmail, miCarrera)
         { }

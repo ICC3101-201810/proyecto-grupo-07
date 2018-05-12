@@ -16,7 +16,11 @@ namespace Notes
         {
             try
             {
-                using (Stream stream = File.Open("cursos.bin", FileMode.Open))
+                string auxdirectorio = Directory.GetCurrentDirectory();
+                string directorio = auxdirectorio.Substring(0, auxdirectorio.Count() - 9);
+                Console.WriteLine(directorio);
+                string finalDirectorio = "\\Datos\\cursos.bin";
+                using (Stream stream = File.Open(directorio + finalDirectorio, FileMode.Open))
                 {
                     BinaryFormatter bin = new BinaryFormatter();
 
@@ -33,7 +37,10 @@ namespace Notes
         {
             try
             {
-                using (Stream stream = File.Open("apuntes.bin", FileMode.Open))
+                string auxdirectorio = Directory.GetCurrentDirectory();
+                string directorio = auxdirectorio.Substring(0, auxdirectorio.Count() - 9);
+                string finalDirectorio = "\\Datos\\apuntes.bin";
+                using (Stream stream = File.Open(directorio + finalDirectorio, FileMode.Open))
                 {
                     BinaryFormatter bin = new BinaryFormatter();
 
@@ -49,7 +56,10 @@ namespace Notes
         {
             try
             {
-                using (Stream stream = File.Open("cuentas.bin", FileMode.Open))
+                string auxdirectorio = Directory.GetCurrentDirectory();
+                string directorio = auxdirectorio.Substring(0, auxdirectorio.Count() - 9);
+                string finalDirectorio = "\\Datos\\cuentas.bin";
+                using (Stream stream = File.Open(directorio + finalDirectorio, FileMode.Open))
                 {
                     BinaryFormatter bin = new BinaryFormatter();
 

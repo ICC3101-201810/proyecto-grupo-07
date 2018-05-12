@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\PruebaConsola",
+    "\\PruebaConsola\\PruebaConsola"
   ],
+  "SelectedNode": "\\PruebaConsola\\PruebaConsola\\Cargar.cs",
   "PreviewInSolutionExplorer": false
 }

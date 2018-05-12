@@ -8,8 +8,6 @@ namespace Notes
 {
     public class Datos
     {
-        public Sistema Sistema = new Sistema();
-
         public List<Curso> Cursos = new List<Curso>() { };
         public List<Apunte> Apuntes = new List<Apunte>() { };
         public List<Cuenta> Cuentas = new List<Cuenta>() { };

@@ -32,28 +32,74 @@ namespace Notes
 
         private void BtnCrearCuenta_Click(object sender, EventArgs e)
         {
-            string Rut = TBxRut.Text;
-            string Nombre = TBxNombre.Text;
-            string Apellido = TBxApellido.Text;
-            string Email = TBxEmail.Text;
-            string Contrasena = TBxContrasena.Text;
-            string Carrera = TBxCarrera.Text;
-
-            string Url = Rut + ".txt";
-
-            if (File.Exists(Url))
+            if (TBxRut.Text != "Ingrese su Rut")
             {
-                MessageBox.Show("Este usuario ya se encuentra registrado");
-            }
+                string Rut = TBxRut.Text;
+                if (TBxNombre.Text != "Ingrese su Nombre")
+                {
+                    string Nombre = TBxNombre.Text;
+                    if (TBxApellido.Text != "Ingrese su Apellido")
+                    {
+                        string Apellido = TBxApellido.Text;
+                        if (TBxEmail.Text != "Ingrese su Email")
+                        {
+                            string Email = TBxEmail.Text;
+                            if (TBxContrasena.Text != "Cree una Contraseña")
+                            {
+                                string Contrasena = TBxContrasena.Text;
+                                if (carrera.Text != "Seleccione una Carrera:")
+                                {
+                                    string Url = Rut + ".txt";
 
+                                    if (File.Exists(Url))
+                                    {
+                                        MessageBox.Show("Este usuario ya se encuentra registrado");
+                                    }
+
+                                    else
+                                    {
+                                        Sistema CifrarContrasena = new Sistema();
+                                        string ContrasenaCifrada = CifrarContrasena.CifrarContrasena(Contrasena);
+                                        File.WriteAllText(Url, Rut + "_" + Nombre + "_" + Apellido + "_" + Email + "_" + ContrasenaCifrada + "_" + carrera);
+
+                                        MessageBox.Show("Su Usuario se Registro Correctamente");
+                                    }
+                                }
+                                else
+                                {
+                                    MessageBox.Show("No ha seleccionado carrera");
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("No ha creado una contaseña");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("No ha ingresado su email");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No ha ingresado su Apellido");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No ha ingresado su Nombre");
+                }
+            }
             else
             {
-                Sistema CifrarContrasena = new Sistema();
-                string ContrasenaCifrada = CifrarContrasena.CifrarContrasena(Contrasena);
-                File.WriteAllText(Url,Rut+"_"+Nombre+"_"+Apellido+"_"+Email+"_"+ContrasenaCifrada+"_"+Carrera);
-
-                MessageBox.Show("Su Usuario se Registro Correctamente");
+                MessageBox.Show("No ha ingresado su Rut");
             }
+
+        }
+
+        private void carrera_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

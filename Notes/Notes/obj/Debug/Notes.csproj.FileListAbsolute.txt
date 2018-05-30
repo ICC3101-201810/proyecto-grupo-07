@@ -31,3 +31,14 @@ C:\Users\Javier\Documents\GitHub\proyecto-grupo-07\Notes\Notes\obj\Debug\Notes.c
 C:\Users\Javier\Documents\GitHub\proyecto-grupo-07\Notes\Notes\obj\Debug\Notes.csproj.CoreCompileInputs.cache
 C:\Users\Javier\Documents\GitHub\proyecto-grupo-07\Notes\Notes\obj\Debug\Notes.exe
 C:\Users\Javier\Documents\GitHub\proyecto-grupo-07\Notes\Notes\obj\Debug\Notes.pdb
+C:\Users\isisi\OneDrive\Documentos\Universidad\Programacion orientada a objetos\Proyecto - Entrega 4 - Grupo 7\Notes\Notes\obj\Debug\Notes.csprojAssemblyReference.cache
+C:\Users\isisi\OneDrive\Documentos\Universidad\Programacion orientada a objetos\Proyecto - Entrega 4 - Grupo 7\Notes\Notes\obj\Debug\Notes.Crear_Cuenta.resources
+C:\Users\isisi\OneDrive\Documentos\Universidad\Programacion orientada a objetos\Proyecto - Entrega 4 - Grupo 7\Notes\Notes\obj\Debug\Notes.Inicio_Sesion.resources
+C:\Users\isisi\OneDrive\Documentos\Universidad\Programacion orientada a objetos\Proyecto - Entrega 4 - Grupo 7\Notes\Notes\obj\Debug\Notes.Properties.Resources.resources
+C:\Users\isisi\OneDrive\Documentos\Universidad\Programacion orientada a objetos\Proyecto - Entrega 4 - Grupo 7\Notes\Notes\obj\Debug\Notes.csproj.GenerateResource.cache
+C:\Users\isisi\OneDrive\Documentos\Universidad\Programacion orientada a objetos\Proyecto - Entrega 4 - Grupo 7\Notes\Notes\obj\Debug\Notes.csproj.CoreCompileInputs.cache
+C:\Users\isisi\OneDrive\Documentos\Universidad\Programacion orientada a objetos\Proyecto - Entrega 4 - Grupo 7\Notes\Notes\obj\Debug\Notes.exe
+C:\Users\isisi\OneDrive\Documentos\Universidad\Programacion orientada a objetos\Proyecto - Entrega 4 - Grupo 7\Notes\Notes\obj\Debug\Notes.pdb
+C:\Users\isisi\OneDrive\Documentos\Universidad\Programacion orientada a objetos\Proyecto - Entrega 4 - Grupo 7\Notes\Notes\bin\Debug\Notes.exe.config
+C:\Users\isisi\OneDrive\Documentos\Universidad\Programacion orientada a objetos\Proyecto - Entrega 4 - Grupo 7\Notes\Notes\bin\Debug\Notes.exe
+C:\Users\isisi\OneDrive\Documentos\Universidad\Programacion orientada a objetos\Proyecto - Entrega 4 - Grupo 7\Notes\Notes\bin\Debug\Notes.pdb

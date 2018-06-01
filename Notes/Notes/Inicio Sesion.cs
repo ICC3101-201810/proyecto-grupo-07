@@ -62,5 +62,10 @@ namespace Notes
         {
             
         }
+
+        private void Inicio_Sesion_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

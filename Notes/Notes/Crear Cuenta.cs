@@ -101,5 +101,10 @@ namespace Notes
         {
             
         }
+
+        private void Crear_Cuenta_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

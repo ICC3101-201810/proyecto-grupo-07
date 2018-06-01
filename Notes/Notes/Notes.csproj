@@ -83,6 +83,9 @@
     <EmbeddedResource Include="Inicio Sesion.resx">
       <DependentUpon>Inicio Sesion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Menu Inicio.resx">
+      <DependentUpon>Menu Inicio.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

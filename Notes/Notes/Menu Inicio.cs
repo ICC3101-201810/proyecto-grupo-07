@@ -16,5 +16,10 @@ namespace Notes
         {
             InitializeComponent();
         }
+
+        private void Menu_Inicio_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

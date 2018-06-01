@@ -40,10 +40,10 @@
             // 
             // BtnCrearCuenta
             // 
-            this.BtnCrearCuenta.Location = new System.Drawing.Point(380, 382);
-            this.BtnCrearCuenta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnCrearCuenta.Location = new System.Drawing.Point(428, 478);
+            this.BtnCrearCuenta.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BtnCrearCuenta.Name = "BtnCrearCuenta";
-            this.BtnCrearCuenta.Size = new System.Drawing.Size(100, 28);
+            this.BtnCrearCuenta.Size = new System.Drawing.Size(112, 35);
             this.BtnCrearCuenta.TabIndex = 0;
             this.BtnCrearCuenta.Text = "Crear Cuenta";
             this.BtnCrearCuenta.UseVisualStyleBackColor = true;
@@ -52,10 +52,10 @@
             // TBxRut
             // 
             this.TBxRut.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.TBxRut.Location = new System.Drawing.Point(134, 38);
-            this.TBxRut.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TBxRut.Location = new System.Drawing.Point(151, 48);
+            this.TBxRut.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.TBxRut.Name = "TBxRut";
-            this.TBxRut.Size = new System.Drawing.Size(303, 22);
+            this.TBxRut.Size = new System.Drawing.Size(340, 26);
             this.TBxRut.TabIndex = 1;
             this.TBxRut.Tag = "";
             this.TBxRut.Text = "Ingrese su Rut";
@@ -63,46 +63,46 @@
             // 
             // TBxNombre
             // 
-            this.TBxNombre.Location = new System.Drawing.Point(134, 87);
-            this.TBxNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TBxNombre.Location = new System.Drawing.Point(151, 109);
+            this.TBxNombre.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.TBxNombre.Name = "TBxNombre";
-            this.TBxNombre.Size = new System.Drawing.Size(303, 22);
+            this.TBxNombre.Size = new System.Drawing.Size(340, 26);
             this.TBxNombre.TabIndex = 2;
             this.TBxNombre.Text = "Ingrese su Nombre";
             // 
             // TBxApellido
             // 
-            this.TBxApellido.Location = new System.Drawing.Point(134, 137);
-            this.TBxApellido.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TBxApellido.Location = new System.Drawing.Point(151, 171);
+            this.TBxApellido.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.TBxApellido.Name = "TBxApellido";
-            this.TBxApellido.Size = new System.Drawing.Size(303, 22);
+            this.TBxApellido.Size = new System.Drawing.Size(340, 26);
             this.TBxApellido.TabIndex = 3;
             this.TBxApellido.Text = "Ingrese su Apellido";
             // 
             // TBxEmail
             // 
-            this.TBxEmail.Location = new System.Drawing.Point(134, 191);
-            this.TBxEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TBxEmail.Location = new System.Drawing.Point(151, 239);
+            this.TBxEmail.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.TBxEmail.Name = "TBxEmail";
-            this.TBxEmail.Size = new System.Drawing.Size(303, 22);
+            this.TBxEmail.Size = new System.Drawing.Size(340, 26);
             this.TBxEmail.TabIndex = 4;
             this.TBxEmail.Text = "Ingrese su Email";
             // 
             // TBxContrasena
             // 
-            this.TBxContrasena.Location = new System.Drawing.Point(134, 243);
-            this.TBxContrasena.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.TBxContrasena.Location = new System.Drawing.Point(151, 304);
+            this.TBxContrasena.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.TBxContrasena.Name = "TBxContrasena";
-            this.TBxContrasena.Size = new System.Drawing.Size(303, 22);
+            this.TBxContrasena.Size = new System.Drawing.Size(340, 26);
             this.TBxContrasena.TabIndex = 5;
             this.TBxContrasena.Text = "Cree una Contraseña";
             // 
             // BtnRegIniciarSesion
             // 
-            this.BtnRegIniciarSesion.Location = new System.Drawing.Point(86, 382);
-            this.BtnRegIniciarSesion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnRegIniciarSesion.Location = new System.Drawing.Point(97, 478);
+            this.BtnRegIniciarSesion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BtnRegIniciarSesion.Name = "BtnRegIniciarSesion";
-            this.BtnRegIniciarSesion.Size = new System.Drawing.Size(100, 28);
+            this.BtnRegIniciarSesion.Size = new System.Drawing.Size(112, 35);
             this.BtnRegIniciarSesion.TabIndex = 7;
             this.BtnRegIniciarSesion.Text = "Atras";
             this.BtnRegIniciarSesion.UseVisualStyleBackColor = true;
@@ -148,18 +148,19 @@
             "Psicologia",
             "Publicidad",
             "Terapia Ocupacional "});
-            this.carrera.Location = new System.Drawing.Point(134, 295);
+            this.carrera.Location = new System.Drawing.Point(151, 369);
+            this.carrera.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.carrera.Name = "carrera";
-            this.carrera.Size = new System.Drawing.Size(303, 24);
+            this.carrera.Size = new System.Drawing.Size(340, 28);
             this.carrera.TabIndex = 8;
             this.carrera.Text = "Seleccione una Carrera:";
             this.carrera.SelectedIndexChanged += new System.EventHandler(this.carrera_SelectedIndexChanged);
             // 
             // Crear_Cuenta
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(607, 463);
+            this.ClientSize = new System.Drawing.Size(683, 579);
             this.Controls.Add(this.carrera);
             this.Controls.Add(this.BtnRegIniciarSesion);
             this.Controls.Add(this.TBxContrasena);
@@ -168,9 +169,10 @@
             this.Controls.Add(this.TBxNombre);
             this.Controls.Add(this.TBxRut);
             this.Controls.Add(this.BtnCrearCuenta);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Crear_Cuenta";
             this.Text = "Crear_Cuenta";
+            this.Load += new System.EventHandler(this.Crear_Cuenta_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

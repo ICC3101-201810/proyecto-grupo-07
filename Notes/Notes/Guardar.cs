@@ -16,25 +16,44 @@ namespace Notes
         {
             try
             {
-                using (Stream stream = File.Open("cursos.bin", FileMode.Create))
+                string auxdirectorio = Directory.GetCurrentDirectory();
+                string directorio = auxdirectorio.Substring(0, auxdirectorio.Count() - 9);
+                string finalDirectorio;
+
+                foreach (Curso curso in cursos)
                 {
-                    BinaryFormatter bin = new BinaryFormatter();
-                    bin.Serialize(stream, cursos);
+                    finalDirectorio = string.Format("\\Datos\\Cursos\\{0}.bin", curso.getID());
+                    using (Stream stream = File.Open(directorio + finalDirectorio, FileMode.Create))
+                    {
+                        BinaryFormatter bin = new BinaryFormatter();
+                        bin.Serialize(stream, curso);
+                    }
                 }
+                
             }
             catch (IOException)
             {
             }
         }
+
         public void Apunte(List<Apunte> apuntes)
         {
             try
             {
-                using (Stream stream = File.Open("apuntes.bin", FileMode.Create))
+                string auxdirectorio = Directory.GetCurrentDirectory();
+                string directorio = auxdirectorio.Substring(0, auxdirectorio.Count() - 9);
+                string finalDirectorio;
+
+                foreach (Apunte apunte in apuntes)
                 {
-                    BinaryFormatter bin = new BinaryFormatter();
-                    bin.Serialize(stream, apuntes);
+                    finalDirectorio = string.Format("\\Datos\\Apuntes\\{0}.bin", apunte.getID());
+                    using (Stream stream = File.Open(directorio + finalDirectorio, FileMode.Create))
+                    {
+                        BinaryFormatter bin = new BinaryFormatter();
+                        bin.Serialize(stream, apunte);
+                    }
                 }
+
             }
             catch (IOException)
             {
@@ -44,11 +63,20 @@ namespace Notes
         {
             try
             {
-                using (Stream stream = File.Open("cuentas.bin", FileMode.Create))
+                string auxdirectorio = Directory.GetCurrentDirectory();
+                string directorio = auxdirectorio.Substring(0, auxdirectorio.Count() - 9);
+                string finalDirectorio;
+
+                foreach (Cuenta cuenta in cuentas)
                 {
-                    BinaryFormatter bin = new BinaryFormatter();
-                    bin.Serialize(stream, cuentas);
+                    finalDirectorio = string.Format("\\Datos\\Cuentas\\{0}.bin", cuenta.getNombre());
+                    using (Stream stream = File.Open(directorio + finalDirectorio, FileMode.Create))
+                    {
+                        BinaryFormatter bin = new BinaryFormatter();
+                        bin.Serialize(stream, cuenta);
+                    }
                 }
+
             }
             catch (IOException)
             {

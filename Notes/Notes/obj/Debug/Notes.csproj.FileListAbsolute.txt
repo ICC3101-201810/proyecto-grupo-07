@@ -42,3 +42,4 @@ C:\Users\isisi\OneDrive\Documentos\Universidad\Programacion orientada a objetos\
 C:\Users\isisi\OneDrive\Documentos\Universidad\Programacion orientada a objetos\Proyecto - Entrega 4 - Grupo 7\Notes\Notes\bin\Debug\Notes.exe.config
 C:\Users\isisi\OneDrive\Documentos\Universidad\Programacion orientada a objetos\Proyecto - Entrega 4 - Grupo 7\Notes\Notes\bin\Debug\Notes.exe
 C:\Users\isisi\OneDrive\Documentos\Universidad\Programacion orientada a objetos\Proyecto - Entrega 4 - Grupo 7\Notes\Notes\bin\Debug\Notes.pdb
+C:\Users\Javier\Documents\GitHub\proyecto-grupo-07\Notes\Notes\obj\Debug\Notes.Menu_Inicio.resources

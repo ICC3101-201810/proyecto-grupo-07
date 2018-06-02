@@ -41,8 +41,7 @@ namespace Notes
                 if (Resultado == true)
                 {
                     MessageBox.Show("Bienvenido");
-                    Menu_Inicio menu_Inicio = new Menu_Inicio();
-
+                    Menu_Inicio menu_Inicio = new Menu_Inicio(Rut);
                     menu_Inicio.Show();
 
                 }
@@ -66,6 +65,42 @@ namespace Notes
         private void Inicio_Sesion_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void TBxRut_Enter(object sender, EventArgs e)
+        {
+            if (TBxRut.Text == "RUT")
+            {
+                TBxRut.Text = "";
+                TBxRut.ForeColor = Color.LightBlue;
+            }
+        }
+
+        private void TBxRut_Leave(object sender, EventArgs e)
+        {
+            if (TBxRut.Text=="")
+            {
+                TBxRut.Text = "RUT";
+            }
+        }
+
+        private void TBxContrasena_Enter(object sender, EventArgs e)
+        {
+            if (TBxContrasena.Text == "CONTRASEÑA")
+            {
+                TBxContrasena.Text = "";
+                TBxContrasena.ForeColor = Color.LightBlue;
+                TBxContrasena.UseSystemPasswordChar = true;
+            }
+        }
+
+        private void TBxContrasena_Leave(object sender, EventArgs e)
+        {
+            if (TBxContrasena.Text == "")
+            {
+                TBxContrasena.Text = "CONTRASEÑA";
+                TBxContrasena.UseSystemPasswordChar = false;
+            }
         }
     }
 }

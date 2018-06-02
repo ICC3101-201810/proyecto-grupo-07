@@ -60,7 +60,7 @@ namespace Notes
                                     {
                                         Sistema CifrarContrasena = new Sistema();
                                         string ContrasenaCifrada = CifrarContrasena.CifrarContrasena(Contrasena);
-                                        File.WriteAllText(Url, Rut + "_" + Nombre + "_" + Apellido + "_" + Email + "_" + ContrasenaCifrada + "_" + carrera);
+                                        File.WriteAllText(Url, Rut + "_" + Nombre + "_" + Apellido + "_" + Email + "_" + ContrasenaCifrada + "_" + carrera.Text);
 
                                         MessageBox.Show("Su Usuario se Registro Correctamente");
                                     }

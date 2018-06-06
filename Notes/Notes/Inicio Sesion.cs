@@ -8,11 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Runtime.InteropServices;
 
 namespace Notes
 {
     public partial class Inicio_Sesion : Form
     {
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void Releasecapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hwnd, int wnsg, int wparam, int lparam);
+
         public Inicio_Sesion()
         {
             InitializeComponent();
@@ -101,6 +107,12 @@ namespace Notes
                 TBxContrasena.Text = "CONTRASEÑA";
                 TBxContrasena.UseSystemPasswordChar = false;
             }
+        }
+
+        private void Fondo_MouseDown(object sender, MouseEventArgs e)
+        {
+            Releasecapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }
 }

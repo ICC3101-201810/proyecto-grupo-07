@@ -10,22 +10,20 @@ namespace Notes
 {
     public class Sistema
     {
-//<<<<<<< HEAD
-        
-//=======
+
         public Buscar Buscar = new Buscar();
         public Ingresar Ingresar = new Ingresar();
         public Cargar Cargar = new Cargar();
         public Guardar Guardar = new Guardar();
 
         StreamWriter TxtCuentas { get; set; }
-        //>>>>>>> 2e8662919fa0a00f8f10cf2cf75ee88cc5c1da63
+
 
         public bool VerificarContrasena(string Rut, string Contrasena)
         {
             string[] LineasTexto = File.ReadAllLines(Rut + ".txt");
 
-            string Separador = "_";
+            string Separador = "_*";
             char Sep = Convert.ToChar(Separador);
             string[] Atributos = LineasTexto[0].Split(Sep);
 
@@ -37,26 +35,7 @@ namespace Notes
             }
 
             return false;
-            /*using (StreamReader LeerCuentas = new StreamReader("Cuentas.txt"))
-            {
-                while (!LeerCuentas.EndOfStream)
-                {
-                    string Linea = LeerCuentas.ReadLine();
-                    string Separador = "#*";
-                    char Sep = Convert.ToChar(Separador);
-                    string[] Atributos = Linea.Split(Sep);
-
-                    foreach (string Atributo in Atributos)
-                    {
-                        if (Atributo == Rut.ToString())
-                        {
-                            return false;
-                        }                       
-                    }
-                    
-                }
-                
-            }*/
+            
         }
 
         public string CifrarContrasena(string Contrasena)

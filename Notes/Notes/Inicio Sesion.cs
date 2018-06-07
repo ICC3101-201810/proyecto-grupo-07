@@ -46,6 +46,7 @@ namespace Notes
 
                 if (Resultado == true)
                 {
+                    this.Hide();
                     MessageBox.Show("Bienvenido");
                     Menu_Inicio menu_Inicio = new Menu_Inicio(Rut);
                     menu_Inicio.Show();
@@ -75,7 +76,7 @@ namespace Notes
 
         private void TBxRut_Enter(object sender, EventArgs e)
         {
-            if (TBxRut.Text == "RUT")
+            if (TBxRut.Text == "Rut")
             {
                 TBxRut.Text = "";
                 TBxRut.ForeColor = Color.LightBlue;
@@ -86,13 +87,13 @@ namespace Notes
         {
             if (TBxRut.Text=="")
             {
-                TBxRut.Text = "RUT";
+                TBxRut.Text = "Rut";
             }
         }
 
         private void TBxContrasena_Enter(object sender, EventArgs e)
         {
-            if (TBxContrasena.Text == "CONTRASEÑA")
+            if (TBxContrasena.Text == "Contraseña")
             {
                 TBxContrasena.Text = "";
                 TBxContrasena.ForeColor = Color.LightBlue;
@@ -104,7 +105,7 @@ namespace Notes
         {
             if (TBxContrasena.Text == "")
             {
-                TBxContrasena.Text = "CONTRASEÑA";
+                TBxContrasena.Text = "Contraseña";
                 TBxContrasena.UseSystemPasswordChar = false;
             }
         }
@@ -113,6 +114,11 @@ namespace Notes
         {
             Releasecapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void Cerrar_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

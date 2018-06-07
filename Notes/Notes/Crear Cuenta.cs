@@ -69,9 +69,12 @@ namespace Notes
                                     {
                                         Sistema CifrarContrasena = new Sistema();
                                         string ContrasenaCifrada = CifrarContrasena.CifrarContrasena(Contrasena);
-                                        File.WriteAllText(Url, Rut + "_*" + Nombre + "_*" + Apellido + "_*" + Email + "_*" + ContrasenaCifrada + "_*" + carrera.Text);
+                                        File.WriteAllText(Url, Rut + "{" + Nombre + "{" + Apellido + "{" + Email + "{" + ContrasenaCifrada + "{" + carrera.Text + "{Estudiante");
 
                                         MessageBox.Show("Su Usuario se Registro Correctamente");
+                                        this.Hide();
+                                        Inicio_Sesion inicio_Sesion = new Inicio_Sesion();
+                                        inicio_Sesion.Show();
                                     }
                                 }
                                 else
@@ -261,6 +264,11 @@ namespace Notes
         {
             Releasecapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void Cerrar_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

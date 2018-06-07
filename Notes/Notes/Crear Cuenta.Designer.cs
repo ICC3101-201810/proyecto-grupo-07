@@ -39,6 +39,8 @@
             this.carrera = new System.Windows.Forms.ComboBox();
             this.Letras = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.Cerrar = new System.Windows.Forms.Button();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // BtnCrearCuenta
@@ -182,12 +184,29 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.Cerrar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(470, 17);
+            this.panel1.Size = new System.Drawing.Size(470, 26);
             this.panel1.TabIndex = 10;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            // 
+            // Cerrar
+            // 
+            this.Cerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(56)))), ((int)(((byte)(83)))));
+            this.Cerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Cerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Cerrar.Font = new System.Drawing.Font("Gobold Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cerrar.ForeColor = System.Drawing.Color.White;
+            this.Cerrar.Location = new System.Drawing.Point(395, 0);
+            this.Cerrar.Name = "Cerrar";
+            this.Cerrar.Size = new System.Drawing.Size(75, 23);
+            this.Cerrar.TabIndex = 11;
+            this.Cerrar.Text = "Cerrar";
+            this.Cerrar.UseVisualStyleBackColor = false;
+            this.Cerrar.Click += new System.EventHandler(this.Cerrar_Click);
             // 
             // Crear_Cuenta
             // 
@@ -210,6 +229,7 @@
             this.Name = "Crear_Cuenta";
             this.Text = "Crear_Cuenta";
             this.Load += new System.EventHandler(this.Crear_Cuenta_Load);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -227,5 +247,6 @@
         private System.Windows.Forms.ComboBox carrera;
         private System.Windows.Forms.Panel Letras;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button Cerrar;
     }
 }

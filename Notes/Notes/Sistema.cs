@@ -23,7 +23,7 @@ namespace Notes
         {
             string[] LineasTexto = File.ReadAllLines(Rut + ".txt");
 
-            string Separador = "_*";
+            string Separador = "{";
             char Sep = Convert.ToChar(Separador);
             string[] Atributos = LineasTexto[0].Split(Sep);
 

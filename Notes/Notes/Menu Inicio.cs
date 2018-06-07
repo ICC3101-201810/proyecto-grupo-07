@@ -26,7 +26,7 @@ namespace Notes
 
             string[] LineasTexto = File.ReadAllLines(Rut + ".txt");
 
-            string Separador = "_";
+            string Separador = "{";
             char Sep = Convert.ToChar(Separador);
             string[] Atributos = LineasTexto[0].Split(Sep);
 
@@ -34,6 +34,7 @@ namespace Notes
             nombreCuenta.Text = Atributos[1] + " " + Atributos[2];
             Carrera.Text = Atributos[5];
             Email.Text = Atributos[3];
+            Tipo.Text = Atributos[6];
 
             string url = "../Fotos/" + Atributos[0] + ".jpg";
 
@@ -276,6 +277,16 @@ namespace Notes
         {
             Releasecapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void ListaTodosArchivos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Cerrar_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

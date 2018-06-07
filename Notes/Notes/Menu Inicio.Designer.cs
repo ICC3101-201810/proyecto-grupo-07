@@ -41,8 +41,11 @@
             this.BtnArchivos = new System.Windows.Forms.Button();
             this.OtrosArchivos = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.Cerrar = new System.Windows.Forms.Button();
+            this.Tipo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Foto)).BeginInit();
             this.Archivos.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // nombreCuenta
@@ -136,6 +139,7 @@
             this.ListaTodosArchivos.Name = "ListaTodosArchivos";
             this.ListaTodosArchivos.Size = new System.Drawing.Size(512, 391);
             this.ListaTodosArchivos.TabIndex = 10;
+            this.ListaTodosArchivos.SelectedIndexChanged += new System.EventHandler(this.ListaTodosArchivos_SelectedIndexChanged);
             // 
             // SubirArchivo
             // 
@@ -152,15 +156,15 @@
             // 
             // ListaArchivos
             // 
-            this.ListaArchivos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(45)))), ((int)(((byte)(83)))));
+            this.ListaArchivos.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ListaArchivos.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.ListaArchivos.Font = new System.Drawing.Font("Quantify", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ListaArchivos.ForeColor = System.Drawing.Color.White;
+            this.ListaArchivos.Font = new System.Drawing.Font("Gobold Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ListaArchivos.ForeColor = System.Drawing.Color.Black;
             this.ListaArchivos.FormattingEnabled = true;
-            this.ListaArchivos.ItemHeight = 14;
+            this.ListaArchivos.ItemHeight = 17;
             this.ListaArchivos.Location = new System.Drawing.Point(0, 0);
             this.ListaArchivos.Name = "ListaArchivos";
-            this.ListaArchivos.Size = new System.Drawing.Size(512, 392);
+            this.ListaArchivos.Size = new System.Drawing.Size(512, 391);
             this.ListaArchivos.TabIndex = 8;
             // 
             // BtnArchivos
@@ -191,12 +195,39 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.Cerrar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 19);
+            this.panel1.Size = new System.Drawing.Size(800, 26);
             this.panel1.TabIndex = 9;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            // 
+            // Cerrar
+            // 
+            this.Cerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(56)))), ((int)(((byte)(83)))));
+            this.Cerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Cerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Cerrar.Font = new System.Drawing.Font("Gobold Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cerrar.ForeColor = System.Drawing.Color.White;
+            this.Cerrar.Location = new System.Drawing.Point(725, 0);
+            this.Cerrar.Name = "Cerrar";
+            this.Cerrar.Size = new System.Drawing.Size(75, 23);
+            this.Cerrar.TabIndex = 11;
+            this.Cerrar.Text = "Cerrar";
+            this.Cerrar.UseVisualStyleBackColor = false;
+            this.Cerrar.Click += new System.EventHandler(this.Cerrar_Click);
+            // 
+            // Tipo
+            // 
+            this.Tipo.AutoSize = true;
+            this.Tipo.Font = new System.Drawing.Font("Gobold Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tipo.ForeColor = System.Drawing.Color.White;
+            this.Tipo.Location = new System.Drawing.Point(50, 316);
+            this.Tipo.Name = "Tipo";
+            this.Tipo.Size = new System.Drawing.Size(32, 17);
+            this.Tipo.TabIndex = 10;
+            this.Tipo.Text = "Tipo";
             // 
             // Menu_Inicio
             // 
@@ -204,6 +235,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(56)))), ((int)(((byte)(83)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Tipo);
             this.Controls.Add(this.OtrosArchivos);
             this.Controls.Add(this.BtnArchivos);
             this.Controls.Add(this.panel1);
@@ -219,6 +251,7 @@
             this.Text = "Menu_Inicio";
             ((System.ComponentModel.ISupportInitialize)(this.Foto)).EndInit();
             this.Archivos.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -239,5 +272,7 @@
         private System.Windows.Forms.ListBox ListaTodosArchivos;
         private System.Windows.Forms.Button OtrosArchivos;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label Tipo;
+        private System.Windows.Forms.Button Cerrar;
     }
 }
